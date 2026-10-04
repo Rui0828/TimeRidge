@@ -1,0 +1,5 @@
+# frozen 2026-10-02; target=tau_bench_airline; cutoff=2025-08-05; test=4 dev=16
+claude-opus-4.1
+gpt-oss-120b
+gpt-oss-20b
+claude-sonnet-4.5

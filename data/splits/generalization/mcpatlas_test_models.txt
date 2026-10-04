@@ -1,0 +1,9 @@
+# frozen 2026-10-02; target=mcpatlas; cutoff=2026-06-16; test=8 dev=32
+glm-5.2
+doubao-seed-2.1-pro
+doubao-seed-2.1-turbo
+hy3
+gpt-5.6-sol
+llada2.2-flash
+kimi-k3
+ling-3.0-flash

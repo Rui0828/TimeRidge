@@ -1,0 +1,5 @@
+# frozen 2026-10-02; target=deep_swe_v1_1; cutoff=2026-07-09; test=4 dev=16
+gpt-5.6-luna
+gpt-5.6-sol
+gpt-5.6-terra
+kimi-k3

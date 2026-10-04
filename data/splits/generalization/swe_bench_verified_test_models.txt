@@ -1,0 +1,25 @@
+# frozen 2026-10-02; target=swe_bench_verified; cutoff=2026-04-22; test=24 dev=68
+claude-opus-4.7
+deepseek-v4-flash
+deepseek-v4-pro
+gpt-5.5
+kimi-k2.6
+minimax-m2.5
+hy3-preview
+mimo-v2.5-pro
+ling-2.6-flash
+mistral-medium-3.5-128b
+ling-2.6-1t
+ring-2.6-1t
+intern-s2-preview-35b
+qwen3.7-max
+claude-opus-4.8
+step-3.7-flash
+mai-code-1-flash
+mai-thinking-1
+nemotron-3-ultra-550b-a55b
+glm-5.2
+doubao-seed-2.1-pro
+hy3
+llada2.2-flash
+longcat-flash-lite-sparse

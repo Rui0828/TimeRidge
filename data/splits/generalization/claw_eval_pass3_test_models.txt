@@ -1,0 +1,6 @@
+# frozen 2026-10-02; target=claw_eval_pass3; cutoff=2026-05-28; test=5 dev=20
+claude-opus-4.8
+step-3.7-flash
+glm-5.2
+doubao-seed-2.1-pro
+hy3

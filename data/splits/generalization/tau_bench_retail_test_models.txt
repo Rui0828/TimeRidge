@@ -1,0 +1,6 @@
+# frozen 2026-10-02; target=tau_bench_retail; cutoff=2025-08-05; test=5 dev=16
+claude-opus-4.1
+gpt-oss-120b
+gpt-oss-20b
+claude-sonnet-4.5
+claude-opus-4.5

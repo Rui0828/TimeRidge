@@ -1,0 +1,2574 @@
+{
+  "schema_version": 1,
+  "description": "Public numeric evidence for relative benchmark evaluation cost. Values are raw source-table numbers plus mechanically derived ratios; qualitative cost claims are excluded.",
+  "sources": [
+    {
+      "source_id": "cybench_paper_gpt4o_baseline_unguided_tokens",
+      "source_name": "Cybench paper baseline unguided token usage tables",
+      "evidence_type": "single_model_agent_benchmark_token_row",
+      "source_urls": [
+        "https://arxiv.org/abs/2408.08926",
+        "https://arxiv.org/e-print/2408.08926"
+      ],
+      "table_path": "arXiv source appendix/appendix_tables/usage_tables/unguided_input_tokens_table.tex and unguided_output_tokens_table.tex; GPT-4o column; Total Input/Output Tokens Used rows",
+      "columns": {
+        "source_model_name": "table column",
+        "input_tokens": "Total Input Tokens Used, in thousands",
+        "output_tokens": "Total Output Tokens Used, in thousands",
+        "reported_items": "40 Cybench tasks"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Cybench",
+          "benchpress_id": "cybench",
+          "source_model_name": "GPT-4o + structured bash baseline agent",
+          "source_model_slug": "gpt-4o; agent=structured-bash-baseline; mode=unguided",
+          "reported_items": 40,
+          "reported_samples": 1,
+          "input_tokens": 1722210,
+          "output_tokens": 292420,
+          "total_tokens": 2014630,
+          "notes": "Source tables report 1722.21K input and 292.42K output tokens for GPT-4o across all 40 unguided baseline tasks."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_brumo_2025_outputs_kimi_k25",
+      "source_name": "MathArena BRUMO 2025 output logs",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://huggingface.co/datasets/MathArena/brumo_2025_outputs",
+        "https://huggingface.co/datasets/MathArena/brumo_2025_outputs/resolve/main/data/train-00000-of-00001.parquet"
+      ],
+      "table_path": "data/train-00000-of-00001.parquet rows where model_config == 'moonshot/k25'",
+      "columns": {
+        "problem_idx": "problem id",
+        "model_name": "model display name",
+        "model_config": "model slug/config",
+        "idx_answer": "sample index",
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "per-answer USD cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "BRUMO 2025",
+          "benchpress_id": "brumo_2025",
+          "source_model_name": "Kimi K2.5 (Think)",
+          "source_model_slug": "moonshot/k25",
+          "reported_items": 30,
+          "reported_samples": 4,
+          "row_count": 120,
+          "input_tokens": 12849,
+          "output_tokens": 2429415,
+          "total_tokens": 2442264,
+          "total_cost_usd": 7.2959544,
+          "notes": "Rows cover idx_answer 0,1,2,3 for all 30 problems."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_hmmt_feb_2026_outputs_kimi_k25",
+      "source_name": "MathArena HMMT Feb 2026 output logs",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://huggingface.co/datasets/MathArena/hmmt_feb_2026_outputs",
+        "https://huggingface.co/datasets/MathArena/hmmt_feb_2026_outputs/resolve/main/data/train-00000-of-00001.parquet"
+      ],
+      "table_path": "data/train-00000-of-00001.parquet rows where model_config == 'moonshot/k25'",
+      "columns": {
+        "problem_idx": "problem id",
+        "model_name": "model display name",
+        "model_config": "model slug/config",
+        "idx_answer": "sample index",
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "per-answer USD cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "HMMT Feb 2026",
+          "benchpress_id": "hmmt_feb_2026",
+          "source_model_name": "Kimi K2.5 (Think)",
+          "source_model_slug": "moonshot/k25",
+          "reported_items": 33,
+          "reported_samples": 4,
+          "row_count": 132,
+          "input_tokens": 14612,
+          "output_tokens": 3797023,
+          "total_tokens": 3811635,
+          "total_cost_usd": 11.3964827,
+          "notes": "Rows cover idx_answer 0,1,2,3 for all 33 problems."
+        }
+      ]
+    },
+    {
+      "source_id": "finance_agent_paper_o3_cost_per_query",
+      "source_name": "Finance Agent Benchmark paper cost table",
+      "evidence_type": "paper_reported_average_query_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2508.00828",
+        "https://arxiv.org/e-print/2508.00828"
+      ],
+      "table_path": "neurips_submission.tex results table row for o3; figures/tikz/cost_comparison_unbalanced.tex bar value",
+      "columns": {
+        "model": "Model",
+        "cost_per_query": "Cost per Query",
+        "num_questions": "benchmark question count from BenchPress metadata/source paper"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Finance Agent Benchmark v1.1",
+          "benchpress_id": "finance_agent",
+          "source_model_name": "o3",
+          "source_model_slug": "openai/o3",
+          "reported_items": 537,
+          "cost_per_query_usd_table": 3.7861,
+          "cost_per_query_usd_tikz": 3.78610164342291,
+          "derived_total_cost_usd": 2033.1365825181026,
+          "notes": "The paper text says the best-performing model o3 achieved 46.8% accuracy at an average cost of $3.79 per query; the table gives $3.7861 and the generated TikZ file gives the full precision."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_cmimc_2025_outputs_kimi_k2_thinking_cost",
+      "source_name": "MathArena CMIMC 2025 output logs for Kimi K2 Thinking",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://huggingface.co/datasets/MathArena/cmimc_2025_outputs",
+        "https://huggingface.co/datasets/MathArena/cmimc_2025_outputs/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet"
+      ],
+      "table_path": "default/train/0000.parquet rows where model_config == 'moonshot/k2-thinking'",
+      "columns": {
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "per-answer USD cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "CMIMC 2025",
+          "benchpress_id": "cmimc_2025",
+          "source_model_name": "Kimi K2 Thinking",
+          "source_model_slug": "moonshot/k2-thinking",
+          "reported_items": 40,
+          "reported_samples": 4,
+          "row_count": 160,
+          "input_tokens": 24541,
+          "output_tokens": 4190329,
+          "total_tokens": 4214870,
+          "total_cost_usd": 10.490547,
+          "notes": "Rows cover idx_answer 0,1,2,3 for all 40 problems."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_hmmt_feb_2025_gpt52_xhigh_per_problem_cost",
+      "source_name": "MathArena HMMT Feb 2025 per-problem evaluation cost",
+      "evidence_type": "official_table_cost_per_problem_run",
+      "source_urls": [
+        "https://matharena.ai/",
+        "https://matharena.ai/competition_tables/hmmt--hmmt_feb_2025"
+      ],
+      "table_path": "HMMT Feb 2025 competition table; GPT-5.2 (xhigh) cost column",
+      "columns": {
+        "cost_per_problem_run_usd": "reported average cost of one model run on one problem"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "HMMT Feb 2025",
+          "benchpress_id": "hmmt_feb_2025",
+          "source_model_name": "GPT-5.2 (xhigh)",
+          "source_model_slug": "gpt-5.2-xhigh",
+          "reported_items": 30,
+          "reported_samples": 4,
+          "cost_per_problem_run_usd": 0.24,
+          "derived_total_cost_usd": 28.8,
+          "notes": "MathArena evaluates 4 samples per problem; 30 problems * 4 samples * $0.24 per problem-run = $28.80. Dollar-only; no token breakdown."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_hmmt_nov_2025_outputs_kimi_k2_thinking_cost",
+      "source_name": "MathArena HMMT Nov 2025 output logs for Kimi K2 Thinking",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://huggingface.co/datasets/MathArena/hmmt_nov_2025_outputs",
+        "https://huggingface.co/datasets/MathArena/hmmt_nov_2025_outputs/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet"
+      ],
+      "table_path": "default/train/0000.parquet rows where model_config == 'moonshot/k2-thinking'",
+      "columns": {
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "per-answer USD cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "HMMT November 2025",
+          "benchpress_id": "hmmt_nov_2025",
+          "source_model_name": "Kimi K2 Thinking",
+          "source_model_slug": "moonshot/k2-thinking",
+          "reported_items": 30,
+          "reported_samples": 4,
+          "row_count": 120,
+          "input_tokens": 14100,
+          "output_tokens": 3450229,
+          "total_tokens": 3464329,
+          "total_cost_usd": 8.634032,
+          "notes": "Rows cover idx_answer 0,1,2,3 for all 30 problems."
+        }
+      ]
+    },
+    {
+      "source_id": "theagentcompany_paper_cost_per_instance",
+      "source_name": "TheAgentCompany paper reported cost per instance",
+      "evidence_type": "paper_reported_average_per_instance_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2412.14161",
+        "https://arxiv.org/html/2412.14161"
+      ],
+      "table_path": "paper table with Agent / Model / Success / Score / Steps / Costs",
+      "columns": {
+        "cost_per_instance_usd": "reported average API cost per instance",
+        "reported_items": "TheAgentCompany task count"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "TheAgentCompany",
+          "benchpress_id": "agentcompany",
+          "source_model_name": "OpenHands 0.28.1 + Gemini-2.5-Pro",
+          "source_model_slug": "openhands-0.28.1; gemini-2.5-pro",
+          "reported_items": 175,
+          "reported_samples": 1,
+          "cost_per_instance_usd": 4.2,
+          "derived_total_cost_usd": 735.0,
+          "notes": "Paper reports average cost per instance. Full-pass total is 175 * $4.2 = $735. Raw prompt/completion token counts are not published."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_aime_2026_outputs_deepseek_v3_2_think",
+      "source_name": "MathArena AIME 2026 model outputs",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://huggingface.co/datasets/MathArena/aime_2026_outputs",
+        "https://matharena.ai/?view=problem&comp=aime--aime_2026"
+      ],
+      "table_path": "public MathArena AIME 2026 output rows for DeepSeek-v3.2 (Think)",
+      "columns": {
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "estimated API cost in USD"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "AIME 2026",
+          "benchpress_id": "aime_2026",
+          "source_model_name": "DeepSeek-v3.2 (Think)",
+          "source_model_slug": "deepseek-v3.2-think",
+          "reported_items": 30,
+          "reported_samples": 4,
+          "row_count": 120,
+          "input_tokens": 17637,
+          "output_tokens": 1782506,
+          "total_tokens": 1800143,
+          "input_cost_per_1m_tokens_usd": 0.28,
+          "output_cost_per_1m_tokens_usd": 0.42,
+          "total_cost_usd": 0.75359088,
+          "notes": "Cost arithmetic: 17,637*0.28/1e6 + 1,782,506*0.42/1e6 = $0.75359088."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_apex_shortlist_outputs_gpt_5_2_high",
+      "source_name": "MathArena Apex Shortlist 2025 model outputs",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://matharena.ai/apex/",
+        "https://huggingface.co/datasets/MathArena/apex_shortlist_outputs"
+      ],
+      "table_path": "public MathArena Apex Shortlist output rows for GPT-5.2 (high)",
+      "columns": {
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "estimated API cost in USD"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Apex Shortlist 2025",
+          "benchpress_id": "apex_shortlist",
+          "source_model_name": "GPT-5.2 (high)",
+          "source_model_slug": "gpt-5.2-high",
+          "reported_items": 48,
+          "reported_samples": 4,
+          "row_count": 192,
+          "input_tokens": 198248,
+          "output_tokens": 10502349,
+          "total_tokens": 10700597,
+          "input_cost_per_1m_tokens_usd": 1.75,
+          "output_cost_per_1m_tokens_usd": 14.0,
+          "total_cost_usd": 147.37982,
+          "notes": "Cost arithmetic: 198,248*1.75/1e6 + 10,502,349*14/1e6 = $147.37982."
+        }
+      ]
+    },
+    {
+      "source_id": "arena_hard_auto_paper_20usd",
+      "source_name": "Arena-Hard-Auto paper reported benchmark cost",
+      "evidence_type": "paper_reported_total_benchmark_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2406.11939",
+        "https://arxiv.org/html/2406.11939v2",
+        "https://github.com/lmarena/arena-hard-auto",
+        "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto"
+      ],
+      "table_path": "paper abstract/introduction cost statement; Arena-Hard-Auto 500-prompt dataset",
+      "columns": {
+        "total_cost_usd": "paper-reported benchmark cost",
+        "reported_items": "Arena-Hard-Auto prompt count"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Arena-Hard-Auto",
+          "benchpress_id": "arena_hard",
+          "source_model_name": "LLM-as-judge evaluation pipeline",
+          "source_model_slug": "arena-hard-auto-judge-pipeline",
+          "reported_items": 500,
+          "reported_samples": 1,
+          "total_cost_usd": 20.0,
+          "cost_per_item_usd": 0.04,
+          "notes": "Paper reports Arena-Hard-Auto costs $20 for the 500-prompt benchmark. This is evaluator/pipeline dollar evidence, not raw token logs."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_apex_2025_official_cost_tokens",
+      "source_name": "MathArena official Apex 2025 leaderboard",
+      "evidence_type": "official_leaderboard_cost_tokens_per_problem_run",
+      "source_urls": [
+        "https://matharena.ai/?comp=apex--apex_2025",
+        "https://matharena.ai/apex/",
+        "https://matharena.ai/competition_tables/apex--apex_2025"
+      ],
+      "table_path": "MathArena Apex 2025 competition table row for Qwen3-235B-2507-Think",
+      "columns": {
+        "cost_per_model_run_per_problem_usd": "Cost column: USD for one model run on one problem",
+        "input_tokens_per_answer_avg": "Input Tokens column",
+        "output_tokens_per_answer_avg": "Output Tokens column"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "MathArena Apex 2025",
+          "benchpress_id": "matharena_apex_2025",
+          "source_model_name": "Qwen3-235B-2507-Think",
+          "source_model_slug": "qwen3-235b-2507-think",
+          "reported_items": 12,
+          "reported_samples": 16,
+          "cost_per_model_run_per_problem_usd": 0.052,
+          "input_tokens_per_answer_avg": 141,
+          "output_tokens_per_answer_avg": 42861,
+          "derived_total_cost_usd": 9.984,
+          "notes": "Apex page reports 12 problems and 16 attempts per model/problem for direct-prompted models. Derived total is 0.052*12*16=$9.984."
+        }
+      ]
+    },
+    {
+      "source_id": "hal_gaia_leaderboard_gpt5_medium_api_cost",
+      "source_name": "HAL leaderboard GAIA reported GPT-5 Medium API cost",
+      "evidence_type": "leaderboard_reported_model_run_cost",
+      "source_urls": [
+        "https://hal.cs.princeton.edu/gaia"
+      ],
+      "table_path": "GAIA leaderboard row for GPT-5 Medium (August 2025), API Cost column",
+      "columns": {
+        "api_cost_usd": "reported API cost in USD"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "GAIA",
+          "benchpress_id": "gaia",
+          "source_model_name": "GPT-5 Medium (August 2025)",
+          "source_model_slug": "gpt-5-medium-2025-08",
+          "total_cost_usd": 104.75,
+          "notes": "Dollar-only evidence from HAL GAIA leaderboard. BenchPress GAIA row is a text-only 103-sample subset, while this source row may reflect the full GAIA leaderboard protocol."
+        }
+      ]
+    },
+    {
+      "source_id": "toolathlon_trajectories_gemini_3_pro_preview_run1",
+      "source_name": "Toolathlon trajectories Gemini 3 Pro Preview run 1",
+      "evidence_type": "official_trajectory_jsonl_token_cost_rows",
+      "source_urls": [
+        "https://huggingface.co/datasets/hkust-nlp/Toolathlon-Trajectories",
+        "https://huggingface.co/datasets/hkust-nlp/Toolathlon-Trajectories/resolve/main/gemini-3-pro-preview_1.jsonl"
+      ],
+      "table_path": "gemini-3-pro-preview_1.jsonl; sum total_input_tokens, total_output_tokens, total_requests, and total_cost across 108 task rows",
+      "columns": {
+        "total_input_tokens": "per-task input token total",
+        "total_output_tokens": "per-task output token total",
+        "total_requests": "per-task API request count",
+        "total_cost": "per-task USD cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Toolathlon",
+          "benchpress_id": "toolathlon",
+          "source_model_name": "Gemini 3 Pro Preview",
+          "source_model_slug": "gemini-3-pro-preview",
+          "reported_items": 108,
+          "reported_samples": 1,
+          "requests": 1962,
+          "input_tokens": 68397190,
+          "output_tokens": 978812,
+          "total_tokens": 69376002,
+          "total_cost_usd": 148.5402,
+          "notes": "Official public trajectory file contains one model run over all 108 Toolathlon tasks."
+        }
+      ]
+    },
+    {
+      "source_id": "swe_bench_multilingual_leaderboard_gemini_3_pro_cost",
+      "source_name": "SWE-bench Multilingual leaderboard reported run cost",
+      "evidence_type": "official_leaderboard_embedded_run_cost",
+      "source_urls": [
+        "https://www.swebench.com/"
+      ],
+      "table_path": "embedded JSON script id=leaderboard-data; category name=Multilingual; row folder=20260213_mini-v2.0.0a0_gemini-3-pro",
+      "columns": {
+        "cost": "total reported run cost in USD",
+        "instance_cost": "mean cost per instance",
+        "instance_calls": "mean API calls per instance",
+        "per_instance_details": "300 per-instance cost/resolution/api-call records"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "SWE-bench Multilingual",
+          "benchpress_id": "swe_bench_multilingual",
+          "source_model_name": "Gemini 3 Pro",
+          "source_model_slug": "mini-swe-agent-v2.0.0a0; gemini-3-pro",
+          "folder": "20260213_mini-v2.0.0a0_gemini-3-pro",
+          "reported_items": 300,
+          "cost": 306.3256754,
+          "instance_cost": 1.0210855846666667,
+          "instance_calls": 48.85,
+          "notes": "Official embedded leaderboard reports dollar cost but not token totals. Cost is model/scaffold/run specific."
+        }
+      ]
+    },
+    {
+      "source_id": "bullshitbench_v1_latest_responses_openai_gpt54_none",
+      "source_name": "BullshitBench v1 published response usage logs",
+      "evidence_type": "official_github_json_stream_per_sample_usage",
+      "source_urls": [
+        "https://github.com/petergpt/bullshit-benchmark",
+        "https://raw.githubusercontent.com/petergpt/bullshit-benchmark/main/data/latest/responses.jsonl"
+      ],
+      "table_path": "data/latest/responses.jsonl; rows with model='openai/gpt-5.4@reasoning=none' and status='ok'",
+      "columns": {
+        "response_prompt_tokens": "prompt tokens for one benchmark sample",
+        "response_completion_tokens": "completion tokens for one benchmark sample",
+        "response_total_tokens": "total tokens for one benchmark sample",
+        "response_reasoning_tokens": "reasoning tokens for one benchmark sample",
+        "response_cost_usd": "reported API cost for one benchmark sample"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "BullshitBench v1 / Clear Pushback",
+          "benchpress_id": "bullshit_pushback",
+          "source_model_name": "openai/gpt-5.4@reasoning=none",
+          "source_model_slug": "openai_gpt-5.4_reasoning_none",
+          "reported_items": 55,
+          "prompt_tokens_sum": 2008,
+          "completion_tokens_sum": 36600,
+          "total_tokens_sum": 38608,
+          "reasoning_tokens_sum": 0,
+          "total_cost_usd_sum": 0.55402,
+          "notes": "Raw published file is a JSON stream; totals were mechanically summed over 55 ok rows for this model. This covers model-answer collection only, not any separate judge-panel cost."
+        }
+      ]
+    },
+    {
+      "source_id": "alpacaeval_2_readme_weighted_gpt4_turbo_price",
+      "source_name": "AlpacaEval README evaluator price table",
+      "evidence_type": "benchmark_judge_cost_per_1000_examples",
+      "source_urls": [
+        "https://raw.githubusercontent.com/tatsu-lab/alpaca_eval/main/README.md",
+        "https://huggingface.co/datasets/tatsu-lab/alpaca_eval/raw/main/alpaca_eval.json"
+      ],
+      "table_path": "README.md Evaluators table; HF alpaca_eval.json row count",
+      "columns": {
+        "annotator": "AlpacaEval evaluator configuration",
+        "Price [$/1000 examples]": "reported OpenAI/API evaluator cost per 1000 examples",
+        "dataset_rows": "number of examples in alpaca_eval.json"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "AlpacaEval 2.0",
+          "benchpress_id": "alpacaeval_2",
+          "source_model_name": "weighted_alpaca_eval_gpt4_turbo auto-annotator",
+          "source_model_slug": "weighted_alpaca_eval_gpt4_turbo; baseline=gpt4_turbo",
+          "price_usd_per_1000_examples": 5.5,
+          "dataset_rows": 805,
+          "derived_total_cost_usd": 4.4275,
+          "notes": "Source reports evaluator price per 1000 examples and says AlpacaEval 2.0 costs less than $10/run. Derived total uses the public 805-example dataset size. Excludes candidate-output generation."
+        }
+      ]
+    },
+    {
+      "source_id": "tau2_bench_paper_gpt41_agent_user_sim_per_task_cost",
+      "source_name": "tau2-bench paper reported GPT-4.1 agent and user-simulator cost",
+      "evidence_type": "paper_reported_average_per_task_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2506.07982"
+      ],
+      "table_path": "arXiv source contents/exps.tex lines reporting GPT-4.1 agent/user simulation costs",
+      "columns": {
+        "agent_cost_per_task": "average agent API cost per task",
+        "user_simulator_cost_per_task": "average user-simulator API cost per task",
+        "all_domains_one_trial_cost": "approximate API cost for all domains at 1 trial per task"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "tau2-bench",
+          "benchpress_id": "tau2_bench_telecom",
+          "source_model_name": "gpt-4.1-2025-04-14 agent + user simulator",
+          "source_model_slug": "gpt-4.1-2025-04-14-agent-user-sim",
+          "agent_cost_per_task": 0.086,
+          "user_simulator_cost_per_task": 0.059,
+          "summed_cost_per_task": 0.145,
+          "all_domains_one_trial_cost_approx": 40,
+          "notes": "Paper reports setup-level average per-task cost; it does not separately report a telecom-only total."
+        },
+        {
+          "source_benchmark_name": "tau2-bench Airline",
+          "benchpress_id": "tau2_bench_airline",
+          "source_model_name": "gpt-4.1-2025-04-14 agent + user simulator",
+          "source_model_slug": "gpt-4.1-2025-04-14-agent-user-sim",
+          "agent_cost_per_task": 0.086,
+          "user_simulator_cost_per_task": 0.059,
+          "summed_cost_per_task": 0.145,
+          "reported_items": 50,
+          "derived_domain_one_trial_cost_usd": 7.25,
+          "all_domains_one_trial_cost_approx": 40,
+          "notes": "Paper reports setup-level average per-task cost, not an airline-only measured total; domain total is mechanically derived from 50 Airline tasks."
+        },
+        {
+          "source_benchmark_name": "tau2-bench Retail",
+          "benchpress_id": "tau2_bench_retail",
+          "source_model_name": "gpt-4.1-2025-04-14 agent + user simulator",
+          "source_model_slug": "gpt-4.1-2025-04-14-agent-user-sim",
+          "agent_cost_per_task": 0.086,
+          "user_simulator_cost_per_task": 0.059,
+          "summed_cost_per_task": 0.145,
+          "reported_items": 115,
+          "derived_domain_one_trial_cost_usd": 16.675,
+          "all_domains_one_trial_cost_approx": 40,
+          "notes": "Paper reports setup-level average per-task cost, not a retail-only measured total; domain total is mechanically derived from 115 Retail tasks."
+        }
+      ]
+    },
+    {
+      "source_id": "arcprize_arc_agi_2_leaderboard_cost",
+      "source_name": "ARC Prize leaderboard data",
+      "evidence_type": "official_leaderboard_json_cost_per_task",
+      "source_urls": [
+        "https://arcprize.org/leaderboard",
+        "https://arcprize.org/media/data/leaderboard/v2.json"
+      ],
+      "table_path": "evaluations[] rows where datasetDisplayName='ARC-AGI-2'; modelId='o3-2025-04-16-high'",
+      "columns": {
+        "costPerTask": "USD cost per task",
+        "score": "accuracy/proportion"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "ARC-AGI-2",
+          "benchpress_id": "arc_agi_2",
+          "source_model_name": "o3 (High)",
+          "modelId": "o3-2025-04-16-high",
+          "costPerTask": 0.8339,
+          "reported_items": 400,
+          "derived_full_benchmark_cost_usd": 333.56,
+          "score": 0.0653,
+          "notes": "Official leaderboard reports per-task cost. Derived full 400-task benchmark total is $0.8339*400=$333.56."
+        }
+      ]
+    },
+    {
+      "source_id": "vending_bench_2_official_cost_chart_gemini_3_pro",
+      "source_name": "Vending-Bench 2 official cost-per-run chart data",
+      "evidence_type": "official_page_embedded_chart_token_cost_row",
+      "source_urls": [
+        "https://andonlabs.com/evals/vending-bench-2",
+        "https://andonlabs.com/_app/immutable/nodes/18.ps2zASBK.js"
+      ],
+      "table_path": "official page 'Score vs. cost per run' chart; embedded JS ct['Gemini 3 Pro']",
+      "columns": {
+        "provider": "LLM provider",
+        "n": "number of runs",
+        "mean_cost": "mean API cost per full-year simulation run in USD",
+        "min_cost": "minimum run cost",
+        "max_cost": "maximum run cost",
+        "avg_input_tokens": "average input tokens per run",
+        "avg_output_tokens": "average output tokens per run",
+        "price_per_mtok_in": "input price per million tokens",
+        "price_per_mtok_out": "output price per million tokens"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Vending-Bench 2",
+          "benchpress_id": "vending_bench_2",
+          "source_model_name": "Gemini 3 Pro",
+          "source_model_slug": "gemini-3-pro",
+          "provider": "Google",
+          "reported_samples": 5,
+          "mean_cost": 146.86,
+          "min_cost": 136.08,
+          "max_cost": 165.58,
+          "avg_input_tokens": 70579113,
+          "avg_output_tokens": 474840,
+          "avg_total_tokens": 71053953,
+          "price_per_mtok_in": 2,
+          "price_per_mtok_out": 12,
+          "notes": "The human-readable page states the chart is score versus mean cost per run, calculated from provider input/output token pricing without caching; exact row values come from the page's embedded JS data."
+        }
+      ]
+    },
+    {
+      "source_id": "swe_bench_verified_leaderboard_mini_swe_agent_claude45_opus_high_cost",
+      "source_name": "SWE-bench Verified leaderboard reported run cost",
+      "evidence_type": "official_leaderboard_embedded_run_cost",
+      "source_urls": [
+        "https://www.swebench.com/"
+      ],
+      "table_path": "embedded JSON script id=leaderboard-data; category name=Verified; row folder=20260217_mini-v2.0.0_claude-4-5-opus-high",
+      "columns": {
+        "cost": "total reported run cost in USD",
+        "instance_cost": "mean cost per instance",
+        "instance_calls": "mean API calls per instance",
+        "per_instance_details": "per-instance cost/resolution details"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "SWE-bench Verified",
+          "benchpress_id": "swe_bench_verified",
+          "source_model_name": "mini-SWE-agent + Claude 4.5 Opus (high reasoning)",
+          "source_model_slug": "mini-swe-agent; claude-4-5-opus; reasoning_effort=high",
+          "folder": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+          "reported_items": 500,
+          "cost": 376.9539985,
+          "instance_cost": 0.753907997,
+          "instance_calls": 32.896,
+          "notes": "Official leaderboard embedded data reports dollar cost but not token totals. Cost is model/scaffold/run specific."
+        }
+      ]
+    },
+    {
+      "source_id": "aider_polyglot_leaderboard_o1mini_whole_cost",
+      "source_name": "Aider Polyglot leaderboard reported whole-mode cost",
+      "evidence_type": "official_leaderboard_yaml_run_cost",
+      "source_urls": [
+        "https://aider.chat/docs/leaderboards/",
+        "https://github.com/Aider-AI/aider/blob/main/aider/website/_data/polyglot_leaderboard.yml#L235-L259"
+      ],
+      "table_path": "aider/website/_data/polyglot_leaderboard.yml lines 235-259; dirname=2024-12-22-21-26-35--polyglot-o1mini-whole",
+      "columns": {
+        "model": "model",
+        "edit_format": "edit_format",
+        "test_cases": "test_cases",
+        "pass_rate_2": "second-try score",
+        "total_tests": "reported tests",
+        "total_cost": "reported run cost in USD"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Aider Polyglot (whole mode)",
+          "benchpress_id": "aider_polyglot_whole",
+          "source_model_name": "o1-mini-2024-09-12",
+          "source_model_slug": "openai/o1-mini; edit_format=whole",
+          "test_cases": 225,
+          "pass_rate_2": 32.9,
+          "total_tests": 225,
+          "total_cost_usd": 18.577,
+          "notes": "Dollar-only evidence; this older whole-mode row does not include token fields."
+        }
+      ]
+    },
+    {
+      "source_id": "swe_bench_pro_nilenso_trajectory_report_gpt5_high",
+      "source_name": "SWE-Bench Pro public trajectory cost/token analysis",
+      "evidence_type": "third_party_public_trajectory_token_cost_analysis",
+      "source_urls": [
+        "https://nilenso.github.io/swe-bench-pro-cost-token-time-analysis/report.txt",
+        "https://nilenso.github.io/swe-bench-pro-cost-token-time-analysis/"
+      ],
+      "table_path": "report.txt TOKENS/COST sections plus interactive report embedded DATA array",
+      "columns": {
+        "instances": "Instances: 616 paired",
+        "mean_input_tokens": "Input tokens (mean)",
+        "mean_output_tokens": "Output tokens (mean)",
+        "total_cost_usd": "COST Total",
+        "per_instance_input_tokens": "DATA[].gpt5.model_stats.tokens_sent",
+        "per_instance_visible_output_tokens": "DATA[].gpt5.output_tokens.total",
+        "per_instance_cost": "DATA[].gpt5.model_stats.instance_cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "SWE-Bench Pro",
+          "benchpress_id": "swe_bench_pro",
+          "source_model_name": "GPT-5 + SWE-Agent",
+          "source_model_slug": "gpt-5; agent=swe-agent; reasoning_effort=high",
+          "agent": "SWE-Agent v1.1.0",
+          "task_filter": "paired submitted tasks only",
+          "reported_items": 616,
+          "report_mean_input_tokens": 3134425,
+          "report_mean_visible_output_tokens": 7101,
+          "report_total_cost_usd_rounded": 1217.9,
+          "summed_input_tokens_from_embedded_data": 1930805533,
+          "summed_visible_output_tokens_from_embedded_data": 4374442,
+          "summed_visible_total_tokens_from_embedded_data": 1935179975,
+          "summed_cost_usd_from_embedded_data": 1217.8967125,
+          "notes": "The human-readable report gives rounded means and rounded total cost. Exact totals are mechanically summed from the same published interactive report's embedded DATA array. Output tokens are visible tiktoken counts across response text and tool-call arguments; GPT-5 hidden reasoning tokens are not included."
+        }
+      ]
+    },
+    {
+      "source_id": "mcpmark_experiments_summary_gemini_3_pro_high",
+      "source_name": "MCPMark experiments summary reported token usage and per-run cost",
+      "evidence_type": "single_model_benchmark_run_token_cost_row",
+      "source_urls": [
+        "https://github.com/eval-sys/mcpmark-experiments/blob/main/summary.json"
+      ],
+      "table_path": "summary.json overall.gemini-3-pro-high",
+      "columns": {
+        "total_tasks": "total_tasks",
+        "total_input_tokens": "total_input_tokens",
+        "total_output_tokens": "total_output_tokens",
+        "per_run_input_tokens": "per_run_input_tokens",
+        "per_run_output_tokens": "per_run_output_tokens",
+        "per_run_cost": "per_run_cost",
+        "actual_model_name": "actual_model_name",
+        "pass@1": "pass@1.avg",
+        "pass@4": "pass@4"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "MCPMark standard task suite",
+          "benchpress_id": "mcpmark",
+          "source_model_name": "gemini-3-pro-high",
+          "source_model_slug": "gemini-3-pro; setting=high",
+          "actual_model_name": "gemini-3-pro",
+          "task_set": "standard",
+          "k": 4,
+          "total_tasks": 127,
+          "pass@1_avg": 0.5394,
+          "pass@4": 0.6693,
+          "total_input_tokens": 504014234,
+          "total_output_tokens": 4526799,
+          "total_tokens": 508541033,
+          "per_run_input_tokens": 126003558.5,
+          "per_run_output_tokens": 1131699.75,
+          "per_run_total_tokens": 127135258.25,
+          "per_run_cost": 265.587514,
+          "notes": "MCPMark release summary reports k=4; per_run_* fields are the appropriate one-run benchmark cost proxy for the 127-task standard suite. Dollar cost is model/run specific."
+        }
+      ]
+    },
+    {
+      "source_id": "aider_polyglot_leaderboard_gpt5_high_diff",
+      "source_name": "Aider Polyglot leaderboard reported token usage and cost",
+      "evidence_type": "single_model_benchmark_run_token_cost_row",
+      "source_urls": [
+        "https://aider.chat/docs/leaderboards/",
+        "https://github.com/Aider-AI/aider/blob/main/aider/website/_data/polyglot_leaderboard.yml#L1715-L1742"
+      ],
+      "table_path": "aider/website/_data/polyglot_leaderboard.yml entry dirname=2025-08-23-15-47-21--gpt-5-high",
+      "columns": {
+        "model": "model",
+        "edit_format": "edit_format",
+        "test_cases": "test_cases",
+        "prompt_tokens": "prompt_tokens",
+        "completion_tokens": "completion_tokens",
+        "total_cost_usd": "total_cost",
+        "command": "command",
+        "date": "date"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Aider Polyglot (diff mode)",
+          "benchpress_id": "aider_polyglot_diff",
+          "source_model_name": "gpt-5 (high)",
+          "source_model_slug": "openai/gpt-5; reasoning_effort=high",
+          "edit_format": "diff",
+          "test_cases": 225,
+          "pass_rate_2": 88.0,
+          "percent_cases_well_formed": 91.6,
+          "user_asks": 96,
+          "prompt_tokens": 2675561,
+          "completion_tokens": 2623429,
+          "total_tokens": 5298990,
+          "total_cost_usd": 29.0829,
+          "command": "aider --model openai/gpt-5",
+          "date": "2025-08-23",
+          "notes": "Aider leaderboard row reports prompt_tokens and completion_tokens for the gpt-5 (high) diff-mode run. Dollar cost is model/run specific."
+        }
+      ]
+    },
+    {
+      "source_id": "terminal_bench_2_table2_gemini3pro_terminus2_tokens",
+      "source_name": "Terminal-Bench 2.0 paper Table 2 token counts",
+      "evidence_type": "single_model_agent_benchmark_token_row",
+      "source_urls": [
+        "https://arxiv.org/html/2601.11868v1"
+      ],
+      "table_path": "Table 2: Trial results for all agent-model combinations evaluated on Terminal-Bench 2.0",
+      "columns": {
+        "model": "Model Name",
+        "agent": "Agent Name",
+        "resolution_rate": "Resolution Rate",
+        "input_tokens": "Input Tokens",
+        "output_tokens": "Output Tokens"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Terminal-Bench 2.0",
+          "benchpress_id": "terminal_bench",
+          "source_model_name": "Gemini 3 Pro + Terminus 2",
+          "source_model_slug": "gemini-3-pro; agent=terminus-2",
+          "model_name": "Gemini 3 Pro",
+          "agent_name": "Terminus 2",
+          "resolution_rate": "56.9% +/- 2.5%",
+          "input_tokens": 5100000,
+          "output_tokens": 2200000,
+          "total_tokens": 7300000,
+          "reported_items": 74,
+          "notes": "Paper caption states token counts are for running all 74 tasks in Terminal-Bench 2.0. Token values are rounded as printed in Table 2."
+        }
+      ]
+    },
+    {
+      "source_id": "helm_capabilities_v1_15_0",
+      "source_name": "HELM Capabilities v1.15.0",
+      "evidence_type": "multi_benchmark_token_table",
+      "source_urls": [
+        "https://raw.githubusercontent.com/stanford-crfm/helm/main/docs/benchmark.md",
+        "https://storage.googleapis.com/crfm-helm-public/capabilities/benchmark_output/releases/v1.15.0/groups.json"
+      ],
+      "table_path": "groups[1].rows",
+      "header_order": [
+        "Group",
+        "Description",
+        "Adaptation method",
+        "# instances",
+        "# references",
+        "# prompt tokens",
+        "# completion tokens",
+        "# models"
+      ],
+      "columns": {
+        "benchmark": 0,
+        "description": 1,
+        "adaptation_method": 2,
+        "instances": 3,
+        "references": 4,
+        "prompt_tokens": 5,
+        "completion_tokens": 6,
+        "models": 7
+      },
+      "extraction_formula": "total_tokens = prompt_tokens + completion_tokens; relative_to_anchor = total_tokens / anchor.total_tokens",
+      "anchor": {
+        "source_benchmark_name": "IFEval",
+        "benchpress_id": "ifeval",
+        "total_tokens": 88583.418
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "MMLU-Pro",
+          "benchpress_id": "mmlu_pro",
+          "instances": 1000.0,
+          "prompt_tokens": 49645.515,
+          "completion_tokens": 84977.373,
+          "total_tokens": 134622.888,
+          "relative_to_anchor": 1.52
+        },
+        {
+          "source_benchmark_name": "GPQA",
+          "benchpress_id": "gpqa_main",
+          "instances": 446.0,
+          "prompt_tokens": 53239.17,
+          "completion_tokens": 148568.469,
+          "total_tokens": 201807.639,
+          "relative_to_anchor": 2.278,
+          "notes": "HELM source row is GPQA main/full-set style, not the GPQA Diamond subset."
+        },
+        {
+          "source_benchmark_name": "IFEval",
+          "benchpress_id": "ifeval",
+          "instances": 541.0,
+          "prompt_tokens": 9577.93,
+          "completion_tokens": 79005.488,
+          "total_tokens": 88583.418,
+          "relative_to_anchor": 1.0
+        },
+        {
+          "source_benchmark_name": "WildBench",
+          "benchpress_id": "wildbench",
+          "instances": 1000.0,
+          "prompt_tokens": 0.0,
+          "completion_tokens": 205215.381,
+          "total_tokens": 205215.381,
+          "relative_to_anchor": 2.317
+        },
+        {
+          "source_benchmark_name": "Omni-MATH",
+          "benchpress_id": "omnimath",
+          "instances": 1000.0,
+          "prompt_tokens": 22672.914,
+          "completion_tokens": 253765.647,
+          "total_tokens": 276438.561,
+          "relative_to_anchor": 3.121
+        }
+      ]
+    },
+    {
+      "source_id": "helm_long_context_v1_0_0",
+      "source_name": "HELM Long Context v1.0.0",
+      "evidence_type": "multi_benchmark_token_table",
+      "source_urls": [
+        "https://storage.googleapis.com/crfm-helm-public/long-context/benchmark_output/releases/v1.0.0/groups.json"
+      ],
+      "table_path": "groups[1].rows",
+      "header_order": [
+        "Group",
+        "Description",
+        "Adaptation method",
+        "# instances",
+        "# references",
+        "# prompt tokens",
+        "# completion tokens",
+        "# models"
+      ],
+      "columns": {
+        "benchmark": 0,
+        "description": 1,
+        "adaptation_method": 2,
+        "instances": 3,
+        "references": 4,
+        "prompt_tokens": 5,
+        "completion_tokens": 6,
+        "models": 7
+      },
+      "extraction_formula": "total_tokens = prompt_tokens + completion_tokens; relative_to_anchor = total_tokens / anchor.total_tokens",
+      "anchor": {
+        "source_benchmark_name": "OpenAI MRCR",
+        "benchpress_id": null,
+        "candidate_benchpress_ids": [
+          "mrcr_v2",
+          "mrcr_v2_2needle_128k",
+          "mrcr_v2_2needle_1m",
+          "mrcr_v2_2needle_256k",
+          "mrcr_v2_8needle"
+        ],
+        "total_tokens": 7658.16,
+        "notes": "HELM source row is OpenAI MRCR; map to a specific BenchPress MRCR row only after variant/slice audit."
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "RULER SQuAD",
+          "benchpress_id": null,
+          "candidate_benchpress_ids": [
+            "ruler_128k",
+            "ruler_32k"
+          ],
+          "instances": 100.0,
+          "prompt_tokens": 5650678.5,
+          "completion_tokens": 142.86,
+          "total_tokens": 5650821.36,
+          "relative_to_anchor": 737.882
+        },
+        {
+          "source_benchmark_name": "RULER HotPotQA",
+          "benchpress_id": null,
+          "candidate_benchpress_ids": [
+            "ruler_128k",
+            "ruler_32k"
+          ],
+          "instances": 100.0,
+          "prompt_tokens": 6068122.68,
+          "completion_tokens": 122.49,
+          "total_tokens": 6068245.17,
+          "relative_to_anchor": 792.389
+        },
+        {
+          "source_benchmark_name": "InfiniteBench En.MC",
+          "benchpress_id": null,
+          "instances": 100.0,
+          "prompt_tokens": 3948960.33,
+          "completion_tokens": 30.33,
+          "total_tokens": 3948990.66,
+          "relative_to_anchor": 515.658
+        },
+        {
+          "source_benchmark_name": "InfiniteBench En.Sum",
+          "benchpress_id": null,
+          "instances": 65.0,
+          "prompt_tokens": 3610048.615,
+          "completion_tokens": 13010.169,
+          "total_tokens": 3623058.785,
+          "relative_to_anchor": 473.098
+        },
+        {
+          "source_benchmark_name": "OpenAI MRCR",
+          "benchpress_id": null,
+          "candidate_benchpress_ids": [
+            "mrcr_v2",
+            "mrcr_v2_2needle_128k",
+            "mrcr_v2_2needle_1m",
+            "mrcr_v2_2needle_256k",
+            "mrcr_v2_8needle"
+          ],
+          "instances": 100.0,
+          "prompt_tokens": 0.0,
+          "completion_tokens": 7658.16,
+          "total_tokens": 7658.16,
+          "relative_to_anchor": 1.0
+        }
+      ]
+    },
+    {
+      "source_id": "artificial_analysis_eval_token_cost_gpt_oss_120b_low",
+      "source_name": "Artificial Analysis per-evaluation token usage and cost for gpt-oss-120B (low)",
+      "evidence_type": "multi_benchmark_model_eval_token_cost_pages",
+      "source_urls": [
+        "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+        "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+        "https://artificialanalysis.ai/evaluations/ifbench",
+        "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+        "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+        "https://artificialanalysis.ai/evaluations/scicode",
+        "https://artificialanalysis.ai/evaluations/critpt",
+        "https://artificialanalysis.ai/evaluations/omniscience",
+        "https://artificialanalysis.ai/evaluations/mmlu-pro",
+        "https://artificialanalysis.ai/evaluations/livecodebench",
+        "https://artificialanalysis.ai/evaluations/aime-2025",
+        "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+        "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+        "https://artificialanalysis.ai/evaluations/tau2-bench",
+        "https://artificialanalysis.ai/evaluations/gdpval-aa"
+      ],
+      "table_path": "Next.js embedded model records on each /evaluations/<slug> page",
+      "model_filter": {
+        "source_model_name": "gpt-oss-120B (low)",
+        "source_model_family_slug": "gpt-oss",
+        "notes": "Same-model slice across Artificial Analysis evaluation pages. Relative cost is model- and provider-pricing dependent; use as source evidence, not as a benchmark-intrinsic constant without aggregation across models/sources."
+      },
+      "columns": {
+        "input_tokens": "tokenCounts.inputTokens",
+        "reasoning_tokens": "tokenCounts.reasoningTokens",
+        "answer_tokens": "tokenCounts.answerTokens",
+        "output_tokens": "tokenCounts.outputTokens",
+        "total_cost_usd": "evalCost.totalCost",
+        "input_cost_usd": "evalCost.inputCost",
+        "reasoning_cost_usd": "evalCost.reasoningCost",
+        "answer_cost_usd": "evalCost.answerCost"
+      },
+      "extraction_formula": "total_tokens = input_tokens + output_tokens; output_tokens = reasoning_tokens + answer_tokens; relative_tokens_to_anchor = total_tokens / anchor.total_tokens; relative_cost_to_anchor = total_cost_usd / anchor.total_cost_usd",
+      "anchor": {
+        "source_benchmark_name": "GPQA Diamond",
+        "source_url": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+        "source_slug": "gpqa-diamond",
+        "benchpress_id": "gpqa_diamond",
+        "input_tokens": 49132,
+        "reasoning_tokens": 136150,
+        "answer_tokens": 8641,
+        "output_tokens": 144791,
+        "total_tokens": 193923,
+        "total_cost_usd": 0.0942444
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "GPQA Diamond",
+          "source_url": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+          "source_slug": "gpqa-diamond",
+          "benchpress_id": "gpqa_diamond",
+          "input_tokens": 49132,
+          "reasoning_tokens": 136150,
+          "answer_tokens": 8641,
+          "output_tokens": 144791,
+          "total_tokens": 193923,
+          "total_cost_usd": 0.0942444,
+          "relative_tokens_to_anchor": 1.0,
+          "relative_cost_to_anchor": 1.0
+        },
+        {
+          "source_benchmark_name": "Humanity's Last Exam",
+          "source_url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+          "source_slug": "humanitys-last-exam",
+          "benchpress_id": "hle",
+          "input_tokens": 666576,
+          "reasoning_tokens": 1279785,
+          "answer_tokens": 659250,
+          "output_tokens": 1939035,
+          "total_tokens": 2605611,
+          "total_cost_usd": 1.2634074,
+          "relative_tokens_to_anchor": 13.436,
+          "relative_cost_to_anchor": 13.406
+        },
+        {
+          "source_benchmark_name": "IFBench",
+          "source_url": "https://artificialanalysis.ai/evaluations/ifbench",
+          "source_slug": "ifbench",
+          "benchpress_id": "ifbench",
+          "input_tokens": 24589,
+          "reasoning_tokens": 222144,
+          "answer_tokens": 119527,
+          "output_tokens": 341671,
+          "total_tokens": 366260,
+          "total_cost_usd": 0.20869095,
+          "relative_tokens_to_anchor": 1.889,
+          "relative_cost_to_anchor": 2.214
+        },
+        {
+          "source_benchmark_name": "Artificial Analysis Long Context Reasoning",
+          "source_url": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+          "source_slug": "artificial-analysis-long-context-reasoning",
+          "benchpress_id": "aa_lcr",
+          "input_tokens": 9436626,
+          "reasoning_tokens": 66773,
+          "answer_tokens": 8580,
+          "output_tokens": 75353,
+          "total_tokens": 9511979,
+          "total_cost_usd": 1.4607057,
+          "relative_tokens_to_anchor": 49.05,
+          "relative_cost_to_anchor": 15.499
+        },
+        {
+          "source_benchmark_name": "Terminal-Bench Hard",
+          "source_url": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+          "source_slug": "terminalbench-hard",
+          "benchpress_id": "terminal_bench_hard",
+          "input_tokens": 5405223,
+          "reasoning_tokens": 78910,
+          "answer_tokens": 127886,
+          "output_tokens": 206796,
+          "total_tokens": 5612019,
+          "total_cost_usd": 0.93486105,
+          "relative_tokens_to_anchor": 28.939,
+          "relative_cost_to_anchor": 9.92
+        },
+        {
+          "source_benchmark_name": "SciCode",
+          "source_url": "https://artificialanalysis.ai/evaluations/scicode",
+          "source_slug": "scicode",
+          "benchpress_id": "scicode",
+          "input_tokens": 783475,
+          "reasoning_tokens": 124226,
+          "answer_tokens": 163799,
+          "output_tokens": 288025,
+          "total_tokens": 1071500,
+          "total_cost_usd": 0.29033625,
+          "relative_tokens_to_anchor": 5.525,
+          "relative_cost_to_anchor": 3.081
+        },
+        {
+          "source_benchmark_name": "CritPt",
+          "source_url": "https://artificialanalysis.ai/evaluations/critpt",
+          "source_slug": "critpt",
+          "benchpress_id": "critpt",
+          "input_tokens": 247554,
+          "reasoning_tokens": 80512,
+          "answer_tokens": 125571,
+          "output_tokens": 206083,
+          "total_tokens": 453637,
+          "total_cost_usd": 0.1607829,
+          "relative_tokens_to_anchor": 2.339,
+          "relative_cost_to_anchor": 1.706
+        },
+        {
+          "source_benchmark_name": "AA-Omniscience",
+          "source_url": "https://artificialanalysis.ai/evaluations/omniscience",
+          "source_slug": "omniscience",
+          "benchpress_id": null,
+          "input_tokens": 741910,
+          "reasoning_tokens": 2253326,
+          "answer_tokens": 79700,
+          "output_tokens": 2333026,
+          "total_tokens": 3074936,
+          "total_cost_usd": 1.5111021,
+          "relative_tokens_to_anchor": 15.856,
+          "relative_cost_to_anchor": 16.034,
+          "notes": "Artificial Analysis evaluation is part of the AA Intelligence Index; keep mapping null until BenchPress row identity is audited."
+        },
+        {
+          "source_benchmark_name": "MMLU-Pro",
+          "source_url": "https://artificialanalysis.ai/evaluations/mmlu-pro",
+          "source_slug": "mmlu-pro",
+          "benchpress_id": "mmlu_pro",
+          "input_tokens": 2750266,
+          "reasoning_tokens": 3410586,
+          "answer_tokens": 250807,
+          "output_tokens": 3661393,
+          "total_tokens": 6411659,
+          "total_cost_usd": 2.6093756999999997,
+          "relative_tokens_to_anchor": 33.063,
+          "relative_cost_to_anchor": 27.687,
+          "notes": "Artificial Analysis page reports a same-model gpt-oss-120B (low) token/cost row; this supersedes the older HELM token-only row for normalized benchmark.cost because it includes dollar cost."
+        },
+        {
+          "source_benchmark_name": "LiveCodeBench",
+          "source_url": "https://artificialanalysis.ai/evaluations/livecodebench",
+          "source_slug": "livecodebench",
+          "benchpress_id": "livecodebench",
+          "input_tokens": 509589,
+          "reasoning_tokens": 1023415,
+          "answer_tokens": 1736112,
+          "output_tokens": 2759527,
+          "total_tokens": 3269116,
+          "total_cost_usd": 1.7321545499999997,
+          "relative_tokens_to_anchor": 16.858,
+          "relative_cost_to_anchor": 18.379
+        },
+        {
+          "source_benchmark_name": "AIME 2025",
+          "source_url": "https://artificialanalysis.ai/evaluations/aime-2025",
+          "source_slug": "aime-2025",
+          "benchpress_id": "aime_2025",
+          "input_tokens": 4303,
+          "reasoning_tokens": 75825,
+          "answer_tokens": 13505,
+          "output_tokens": 89330,
+          "total_tokens": 93633,
+          "total_cost_usd": 0.05424345,
+          "relative_tokens_to_anchor": 0.483,
+          "relative_cost_to_anchor": 0.576
+        },
+        {
+          "source_benchmark_name": "AA Intelligence Index",
+          "source_url": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+          "source_slug": "artificial-analysis-intelligence-index",
+          "benchpress_id": "aa_intelligence_index",
+          "input_tokens": 75121786,
+          "reasoning_tokens": 4608723,
+          "answer_tokens": 3104429,
+          "output_tokens": 7713152,
+          "total_tokens": 82834938,
+          "total_cost_usd": 15.896159099999998,
+          "relative_tokens_to_anchor": 427.154,
+          "relative_cost_to_anchor": 168.67,
+          "notes": "Aggregate Artificial Analysis Intelligence Index token/cost row, not a single sub-benchmark; use for the BenchPress AA Intelligence Index benchmark row only."
+        },
+        {
+          "source_benchmark_name": "Global MMLU Lite",
+          "source_url": "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+          "source_slug": "global-mmlu-lite",
+          "benchpress_id": "global_mmlu_lite",
+          "input_tokens": 3383385,
+          "reasoning_tokens": 3857095,
+          "answer_tokens": 282250,
+          "output_tokens": 4139345,
+          "total_tokens": 7522730,
+          "total_cost_usd": 2.9911147499999995,
+          "relative_tokens_to_anchor": 38.792,
+          "relative_cost_to_anchor": 31.738
+        },
+        {
+          "source_benchmark_name": "Tau2-Bench",
+          "source_url": "https://artificialanalysis.ai/evaluations/tau2-bench",
+          "source_slug": "tau2-bench",
+          "benchpress_id": "tau2_bench_avg",
+          "input_tokens": 23925826,
+          "reasoning_tokens": 121056,
+          "answer_tokens": 292006,
+          "output_tokens": 413062,
+          "total_tokens": 24338888,
+          "total_cost_usd": 3.8367110999999996,
+          "relative_tokens_to_anchor": 125.508,
+          "relative_cost_to_anchor": 40.71,
+          "notes": "Artificial Analysis page reports the aggregate tau2-bench evaluation row; map to BenchPress tau2_bench_avg, not the individual retail/airline/telecom rows."
+        },
+        {
+          "source_benchmark_name": "GDPval-AA",
+          "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+          "source_slug": "gdpval-aa",
+          "benchpress_id": "gdpval_aa_elo",
+          "input_tokens": 33840875,
+          "reasoning_tokens": 245841,
+          "answer_tokens": 1519469,
+          "output_tokens": 1765310,
+          "total_tokens": 35606185,
+          "total_cost_usd": 6.13531725,
+          "relative_tokens_to_anchor": 183.61,
+          "relative_cost_to_anchor": 65.1
+        }
+      ]
+    },
+    {
+      "source_id": "artificial_analysis_eval_token_cost_gemini_2_5_pro_anchor",
+      "source_name": "Artificial Analysis per-evaluation token usage and cost with Gemini 2.5 Pro anchor",
+      "evidence_type": "multi_benchmark_model_eval_token_cost_pages",
+      "source_urls": [
+        "https://artificialanalysis.ai/evaluations/aime-2025",
+        "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+        "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+        "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+        "https://artificialanalysis.ai/evaluations/critpt",
+        "https://artificialanalysis.ai/evaluations/gdpval-aa",
+        "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+        "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+        "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+        "https://artificialanalysis.ai/evaluations/ifbench",
+        "https://artificialanalysis.ai/evaluations/livecodebench",
+        "https://artificialanalysis.ai/evaluations/math-500",
+        "https://artificialanalysis.ai/evaluations/mmlu-pro",
+        "https://artificialanalysis.ai/evaluations/mmmu-pro",
+        "https://artificialanalysis.ai/evaluations/omniscience",
+        "https://artificialanalysis.ai/evaluations/scicode",
+        "https://artificialanalysis.ai/evaluations/tau2-bench",
+        "https://artificialanalysis.ai/evaluations/terminalbench-hard"
+      ],
+      "table_path": "Next.js embedded model records on each /evaluations/<slug> page",
+      "model_filter": {
+        "primary_source_model_name": "Gemini 2.5 Pro",
+        "primary_source_model_slug": "gemini-2-5-pro",
+        "fallback_policy": "Use Gemini 3 Flash Preview (Reasoning) only for APEX-Agents because Gemini 2.5 Pro has no token/cost row on that page.",
+        "notes": "Use a high-coverage source-model slice for relative benchmark token usage. Token counts still reflect the reported model and inference setting; dollar costs are run/model-specific."
+      },
+      "columns": {
+        "source_model_name": "model.name",
+        "source_model_slug": "model.slug",
+        "input_tokens": "tokenCounts.inputTokens",
+        "reasoning_tokens": "tokenCounts.reasoningTokens",
+        "answer_tokens": "tokenCounts.answerTokens",
+        "output_tokens": "tokenCounts.outputTokens",
+        "total_cost_usd": "evalCost.totalCost",
+        "input_cost_usd": "evalCost.inputCost",
+        "reasoning_cost_usd": "evalCost.reasoningCost",
+        "answer_cost_usd": "evalCost.answerCost",
+        "output_cost_usd": "evalCost.outputCost"
+      },
+      "extraction_formula": "total_tokens = input_tokens + output_tokens; relative_tokens_to_anchor = total_tokens / GPQA_Diamond.total_tokens; relative_cost_to_anchor = total_cost_usd / GPQA_Diamond.total_cost_usd.",
+      "anchor": {
+        "source_benchmark_name": "GPQA Diamond",
+        "source_url": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+        "source_slug": "gpqa-diamond",
+        "benchpress_id": "gpqa_diamond",
+        "source_model_name": "Gemini 2.5 Pro",
+        "source_model_slug": "gemini-2-5-pro",
+        "input_tokens": 48975,
+        "reasoning_tokens": 1372733,
+        "answer_tokens": 198672,
+        "output_tokens": 1571405,
+        "total_tokens": 1620380,
+        "total_cost_usd": 15.77526875
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "AIME 2025",
+          "source_url": "https://artificialanalysis.ai/evaluations/aime-2025",
+          "source_slug": "aime-2025",
+          "benchpress_id": "aime_2025",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 4347,
+          "reasoning_tokens": 525629,
+          "answer_tokens": 64606,
+          "output_tokens": 590235,
+          "total_tokens": 594582,
+          "total_cost_usd": 5.907783749999999,
+          "input_cost_usd": 0.00543375,
+          "reasoning_cost_usd": 5.25629,
+          "answer_cost_usd": 0.64606,
+          "output_cost_usd": 5.902349999999999,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 0.367,
+          "relative_cost_to_anchor": 0.374
+        },
+        {
+          "source_benchmark_name": "APEX-Agents",
+          "source_url": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+          "source_slug": "apex-agents-aa",
+          "benchpress_id": "apex_agents",
+          "source_model_name": "Gemini 3 Flash Preview (Reasoning)",
+          "source_model_slug": "gemini-3-flash-reasoning",
+          "input_tokens": 1125772887.3333333,
+          "reasoning_tokens": 9216933.333333334,
+          "answer_tokens": 1935703.6666666667,
+          "output_tokens": 11152637,
+          "total_tokens": 1136925524.3333333,
+          "total_cost_usd": 596.3443546666666,
+          "input_cost_usd": 562.8864436666667,
+          "reasoning_cost_usd": 27.6508,
+          "answer_cost_usd": 5.807111,
+          "output_cost_usd": 33.457911,
+          "selection_note": "fallback: Gemini 2.5 Pro has no APEX-Agents token row; Gemini 3 Flash Reasoning is present on this page",
+          "relative_tokens_to_anchor": 701.641,
+          "relative_cost_to_anchor": 37.802
+        },
+        {
+          "source_benchmark_name": "AA Intelligence Index",
+          "source_url": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+          "source_slug": "artificial-analysis-intelligence-index",
+          "benchpress_id": "aa_intelligence_index",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 81649130,
+          "reasoning_tokens": 49162377,
+          "answer_tokens": 5463027,
+          "output_tokens": 54625405,
+          "total_tokens": 136274535,
+          "total_cost_usd": 648.3154625,
+          "input_cost_usd": 102.0614125,
+          "reasoning_cost_usd": 491.62377,
+          "answer_cost_usd": 54.63027,
+          "output_cost_usd": 546.25405,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 84.1,
+          "relative_cost_to_anchor": 41.097
+        },
+        {
+          "source_benchmark_name": "Artificial Analysis Long Context Reasoning",
+          "source_url": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+          "source_slug": "artificial-analysis-long-context-reasoning",
+          "benchpress_id": "aa_lcr",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 9489998,
+          "reasoning_tokens": 0,
+          "answer_tokens": 179014,
+          "output_tokens": 179014,
+          "total_tokens": 9669012,
+          "total_cost_usd": 13.6526375,
+          "input_cost_usd": 11.8624975,
+          "reasoning_cost_usd": 0,
+          "answer_cost_usd": 1.79014,
+          "output_cost_usd": 1.79014,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 5.967,
+          "relative_cost_to_anchor": 0.865
+        },
+        {
+          "source_benchmark_name": "CritPt",
+          "source_url": "https://artificialanalysis.ai/evaluations/critpt",
+          "source_slug": "critpt",
+          "benchpress_id": "critpt",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 373931,
+          "reasoning_tokens": 1557371,
+          "answer_tokens": 258255,
+          "output_tokens": 1815626,
+          "total_tokens": 2189557,
+          "total_cost_usd": 18.62367375,
+          "input_cost_usd": 0.46741375,
+          "reasoning_cost_usd": 15.57371,
+          "answer_cost_usd": 2.5825500000000003,
+          "output_cost_usd": 18.15626,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 1.351,
+          "relative_cost_to_anchor": 1.181
+        },
+        {
+          "source_benchmark_name": "GDPval-AA",
+          "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+          "source_slug": "gdpval-aa",
+          "benchpress_id": "gdpval_aa_elo",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 34985674,
+          "reasoning_tokens": 2514384,
+          "answer_tokens": 1049093,
+          "output_tokens": 3563478,
+          "total_tokens": 38549152,
+          "total_cost_usd": 79.3668725,
+          "input_cost_usd": 43.73209250000001,
+          "reasoning_cost_usd": 25.14384,
+          "answer_cost_usd": 10.49093,
+          "output_cost_usd": 35.63478,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 23.79,
+          "relative_cost_to_anchor": 5.031
+        },
+        {
+          "source_benchmark_name": "Global MMLU Lite",
+          "source_url": "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+          "source_slug": "global-mmlu-lite",
+          "benchpress_id": "global_mmlu_lite",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 3383385,
+          "reasoning_tokens": 27435968,
+          "answer_tokens": 3553171,
+          "output_tokens": 30989139,
+          "total_tokens": 34372524,
+          "total_cost_usd": 314.12062125,
+          "input_cost_usd": 4.22923125,
+          "reasoning_cost_usd": 274.35967999999997,
+          "answer_cost_usd": 35.53171,
+          "output_cost_usd": 309.89139,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 21.213,
+          "relative_cost_to_anchor": 19.912
+        },
+        {
+          "source_benchmark_name": "GPQA Diamond",
+          "source_url": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+          "source_slug": "gpqa-diamond",
+          "benchpress_id": "gpqa_diamond",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 48975,
+          "reasoning_tokens": 1372733,
+          "answer_tokens": 198672,
+          "output_tokens": 1571405,
+          "total_tokens": 1620380,
+          "total_cost_usd": 15.77526875,
+          "input_cost_usd": 0.061218749999999995,
+          "reasoning_cost_usd": 13.72733,
+          "answer_cost_usd": 1.9867199999999998,
+          "output_cost_usd": 15.71405,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 1.0,
+          "relative_cost_to_anchor": 1.0
+        },
+        {
+          "source_benchmark_name": "Humanity's Last Exam",
+          "source_url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+          "source_slug": "humanitys-last-exam",
+          "benchpress_id": "hle",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 659476,
+          "reasoning_tokens": 28616051,
+          "answer_tokens": 2817750,
+          "output_tokens": 31433801,
+          "total_tokens": 32093277,
+          "total_cost_usd": 315.162355,
+          "input_cost_usd": 0.8243449999999999,
+          "reasoning_cost_usd": 286.16051,
+          "answer_cost_usd": 28.177500000000002,
+          "output_cost_usd": 314.33801,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 19.806,
+          "relative_cost_to_anchor": 19.978
+        },
+        {
+          "source_benchmark_name": "IFBench",
+          "source_url": "https://artificialanalysis.ai/evaluations/ifbench",
+          "source_slug": "ifbench",
+          "benchpress_id": "ifbench",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 24896,
+          "reasoning_tokens": 714678,
+          "answer_tokens": 166881,
+          "output_tokens": 881559,
+          "total_tokens": 906455,
+          "total_cost_usd": 8.84671,
+          "input_cost_usd": 0.031120000000000002,
+          "reasoning_cost_usd": 7.146780000000001,
+          "answer_cost_usd": 1.6688100000000001,
+          "output_cost_usd": 8.81559,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 0.559,
+          "relative_cost_to_anchor": 0.561
+        },
+        {
+          "source_benchmark_name": "LiveCodeBench",
+          "source_url": "https://artificialanalysis.ai/evaluations/livecodebench",
+          "source_slug": "livecodebench",
+          "benchpress_id": "livecodebench",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 506736,
+          "reasoning_tokens": 17031151,
+          "answer_tokens": 1273953,
+          "output_tokens": 18305104,
+          "total_tokens": 18811840,
+          "total_cost_usd": 183.68446,
+          "input_cost_usd": 0.63342,
+          "reasoning_cost_usd": 170.31151,
+          "answer_cost_usd": 12.739529999999998,
+          "output_cost_usd": 183.05104,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 11.61,
+          "relative_cost_to_anchor": 11.644
+        },
+        {
+          "source_benchmark_name": "MATH-500",
+          "source_url": "https://artificialanalysis.ai/evaluations/math-500",
+          "source_slug": "math-500",
+          "benchpress_id": "math_500",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 47911,
+          "reasoning_tokens": 1971303,
+          "answer_tokens": 396262,
+          "output_tokens": 2367565,
+          "total_tokens": 2415476,
+          "total_cost_usd": 23.735538749999996,
+          "input_cost_usd": 0.059888750000000004,
+          "reasoning_cost_usd": 19.71303,
+          "answer_cost_usd": 3.9626200000000003,
+          "output_cost_usd": 23.675649999999997,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 1.491,
+          "relative_cost_to_anchor": 1.505
+        },
+        {
+          "source_benchmark_name": "MMLU-Pro",
+          "source_url": "https://artificialanalysis.ai/evaluations/mmlu-pro",
+          "source_slug": "mmlu-pro",
+          "benchpress_id": "mmlu_pro",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 2723851,
+          "reasoning_tokens": 36317607,
+          "answer_tokens": 6321493,
+          "output_tokens": 42639100,
+          "total_tokens": 45362951,
+          "total_cost_usd": 429.79581375,
+          "input_cost_usd": 3.4048137499999998,
+          "reasoning_cost_usd": 363.17607000000004,
+          "answer_cost_usd": 63.21493,
+          "output_cost_usd": 426.39099999999996,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 27.995,
+          "relative_cost_to_anchor": 27.245
+        },
+        {
+          "source_benchmark_name": "MMMU-Pro",
+          "source_url": "https://artificialanalysis.ai/evaluations/mmmu-pro",
+          "source_slug": "mmmu-pro",
+          "benchpress_id": "mmmu_pro",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 891495,
+          "reasoning_tokens": 6677746,
+          "answer_tokens": 1088815,
+          "output_tokens": 7766561,
+          "total_tokens": 8658056,
+          "total_cost_usd": 78.77997875,
+          "input_cost_usd": 1.1143687500000001,
+          "reasoning_cost_usd": 66.77746,
+          "answer_cost_usd": 10.888150000000001,
+          "output_cost_usd": 77.66561,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 5.343,
+          "relative_cost_to_anchor": 4.994
+        },
+        {
+          "source_benchmark_name": "AA-Omniscience",
+          "source_url": "https://artificialanalysis.ai/evaluations/omniscience",
+          "source_slug": "omniscience",
+          "benchpress_id": null,
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 717910,
+          "reasoning_tokens": 10227066,
+          "answer_tokens": 43714,
+          "output_tokens": 10270780,
+          "total_tokens": 10988690,
+          "total_cost_usd": 103.6051875,
+          "input_cost_usd": 0.8973875,
+          "reasoning_cost_usd": 102.27066,
+          "answer_cost_usd": 0.43714000000000003,
+          "output_cost_usd": 102.7078,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 6.782,
+          "relative_cost_to_anchor": 6.568
+        },
+        {
+          "source_benchmark_name": "SciCode",
+          "source_url": "https://artificialanalysis.ai/evaluations/scicode",
+          "source_slug": "scicode",
+          "benchpress_id": "scicode",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 1053511,
+          "reasoning_tokens": 1909473,
+          "answer_tokens": 202899,
+          "output_tokens": 2112372,
+          "total_tokens": 3165883,
+          "total_cost_usd": 22.440608750000003,
+          "input_cost_usd": 1.3168887500000002,
+          "reasoning_cost_usd": 19.09473,
+          "answer_cost_usd": 2.02899,
+          "output_cost_usd": 21.123720000000002,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 1.954,
+          "relative_cost_to_anchor": 1.423
+        },
+        {
+          "source_benchmark_name": "Tau2-Bench",
+          "source_url": "https://artificialanalysis.ai/evaluations/tau2-bench",
+          "source_slug": "tau2-bench",
+          "benchpress_id": "tau2_bench_avg",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 21458049,
+          "reasoning_tokens": 748345,
+          "answer_tokens": 123273,
+          "output_tokens": 871618,
+          "total_tokens": 22329667,
+          "total_cost_usd": 35.53874125,
+          "input_cost_usd": 26.82256125,
+          "reasoning_cost_usd": 7.48345,
+          "answer_cost_usd": 1.2327299999999999,
+          "output_cost_usd": 8.71618,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 13.781,
+          "relative_cost_to_anchor": 2.253
+        },
+        {
+          "source_benchmark_name": "Terminal-Bench Hard",
+          "source_url": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+          "source_slug": "terminalbench-hard",
+          "benchpress_id": "terminal_bench_hard",
+          "source_model_name": "Gemini 2.5 Pro",
+          "source_model_slug": "gemini-2-5-pro",
+          "input_tokens": 12836710,
+          "reasoning_tokens": 1502276,
+          "answer_tokens": 423476,
+          "output_tokens": 1925752,
+          "total_tokens": 14762462,
+          "total_cost_usd": 35.3034075,
+          "input_cost_usd": 16.0458875,
+          "reasoning_cost_usd": 15.02276,
+          "answer_cost_usd": 4.2347600000000005,
+          "output_cost_usd": 19.25752,
+          "selection_note": "primary anchor model: Gemini 2.5 Pro",
+          "relative_tokens_to_anchor": 9.11,
+          "relative_cost_to_anchor": 2.238
+        }
+      ]
+    },
+    {
+      "source_id": "arc_prize_o3_preview_arc_agi_1_compute_table",
+      "source_name": "ARC Prize o3-preview ARC-AGI-1 compute table",
+      "evidence_type": "single_benchmark_token_cost_table",
+      "source_urls": [
+        "https://arcprize.org/blog/oai-o3-pub-breakthrough"
+      ],
+      "table_path": "o3-preview ARC-AGI-1 performance/cost table in blog post",
+      "columns": {
+        "benchmark_split": "Semi-Private or Public",
+        "tasks": "Tasks",
+        "compute_setting": "High/Low compute",
+        "samples": "Samples",
+        "total_tokens": "Tokens",
+        "total_cost_usd": "Cost",
+        "cost_per_task_usd": "Cost/task"
+      },
+      "extraction_formula": "tokens_per_task = total_tokens / tasks; cost_per_task_usd = total_cost_usd / tasks. Rows are raw reported o3-preview settings, not benchmark-intrinsic required cost.",
+      "rows": [
+        {
+          "source_benchmark_name": "ARC-AGI-1 Public / High compute",
+          "benchpress_id": "arc_agi_1",
+          "source_url": "https://arcprize.org/blog/oai-o3-pub-breakthrough",
+          "tasks": 400,
+          "compute_setting": "high",
+          "samples": 6,
+          "total_tokens": 111000000,
+          "tokens_per_task": 277500,
+          "total_cost_usd": 66772.0,
+          "cost_per_task_usd": 167.0,
+          "notes": "This is the source row used for the normalized benchmark cost dictionary and current test_time_compute evidence."
+        },
+        {
+          "source_benchmark_name": "ARC-AGI-1 Public / Low compute",
+          "benchpress_id": "arc_agi_1",
+          "source_url": "https://arcprize.org/blog/oai-o3-pub-breakthrough",
+          "tasks": 400,
+          "compute_setting": "low",
+          "samples": 1024,
+          "total_tokens": 9500000000,
+          "tokens_per_task": 23750000,
+          "total_cost_usd": 760000.0,
+          "cost_per_task_usd": 1900.0,
+          "notes": "Alternative reported high-search setting; stored as raw evidence, not selected as the normalized default cost dict."
+        }
+      ]
+    },
+    {
+      "source_id": "artificial_analysis_eval_token_cost_selected_model_rows",
+      "source_name": "Artificial Analysis per-evaluation token usage and cost for selected reported model rows",
+      "evidence_type": "multi_benchmark_selected_model_eval_token_cost_pages",
+      "source_urls": [
+        "https://artificialanalysis.ai/evaluations/math-500",
+        "https://artificialanalysis.ai/evaluations/mmmu-pro",
+        "https://artificialanalysis.ai/evaluations/apex-agents-aa"
+      ],
+      "table_path": "Next.js embedded model records on each /evaluations/<slug> page",
+      "columns": {
+        "source_model_name": "model.name",
+        "source_model_slug": "model.slug",
+        "input_tokens": "tokenCounts.inputTokens",
+        "reasoning_tokens": "tokenCounts.reasoningTokens",
+        "answer_tokens": "tokenCounts.answerTokens",
+        "output_tokens": "tokenCounts.outputTokens",
+        "total_cost_usd": "evalCost.totalCost"
+      },
+      "extraction_formula": "total_tokens = input_tokens + output_tokens; source_model_* must be kept because output/reasoning tokens and dollar costs are model-specific.",
+      "rows": [
+        {
+          "source_benchmark_name": "MATH-500",
+          "source_url": "https://artificialanalysis.ai/evaluations/math-500",
+          "source_slug": "math-500",
+          "benchpress_id": "math_500",
+          "source_model_name": "o3",
+          "source_model_slug": "o3",
+          "input_tokens": 47911,
+          "reasoning_tokens": 791531,
+          "answer_tokens": 151469,
+          "output_tokens": 943000,
+          "total_tokens": 990911,
+          "total_cost_usd": 7.639822,
+          "notes": "Artificial Analysis page does not include gpt-oss-120B (low); use the reported o3 row and keep model identity explicit."
+        },
+        {
+          "source_benchmark_name": "MMMU-Pro",
+          "source_url": "https://artificialanalysis.ai/evaluations/mmmu-pro",
+          "source_slug": "mmmu-pro",
+          "benchpress_id": "mmmu_pro",
+          "source_model_name": "GPT-5.4 mini (Non-Reasoning)",
+          "source_model_slug": "gpt-5-4-mini-non-reasoning",
+          "input_tokens": 1221525,
+          "reasoning_tokens": 0,
+          "answer_tokens": 202713,
+          "output_tokens": 202713,
+          "total_tokens": 1424238,
+          "total_cost_usd": 1.82835225,
+          "notes": "Artificial Analysis page does not include gpt-oss-120B (low); use a non-reasoning row so total tokens are less dominated by hidden reasoning budget."
+        },
+        {
+          "source_benchmark_name": "APEX-Agents",
+          "source_url": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+          "source_slug": "apex-agents-aa",
+          "benchpress_id": "apex_agents",
+          "source_model_name": "gpt-oss-120B (high)",
+          "source_model_slug": "gpt-oss-120b",
+          "input_tokens": 662931330.3333334,
+          "reasoning_tokens": 6377259.333333333,
+          "answer_tokens": 4284497,
+          "output_tokens": 10661756.333333334,
+          "total_tokens": 673593086.6666667,
+          "total_cost_usd": 105.83675335,
+          "notes": "Artificial Analysis page does not include gpt-oss-120B (low); use the reported gpt-oss-120B (high) row and keep model identity explicit."
+        }
+      ]
+    },
+    {
+      "source_id": "helm_classic_v0_4_0",
+      "source_name": "HELM Classic v0.4.0",
+      "evidence_type": "multi_benchmark_token_table",
+      "source_urls": [
+        "https://storage.googleapis.com/crfm-helm-public/classic/benchmark_output/releases/v0.4.0/groups.json"
+      ],
+      "table_path": "groups[3].rows (Scenarios)",
+      "header_order": [
+        "Group",
+        "Description",
+        "Adaptation method",
+        "# instances",
+        "# references",
+        "# prompt tokens",
+        "# completion tokens",
+        "# models"
+      ],
+      "columns": {
+        "benchmark": 0,
+        "description": 1,
+        "adaptation_method": 2,
+        "instances": 3,
+        "references": 4,
+        "prompt_tokens": 5,
+        "completion_tokens": 6,
+        "models": 7
+      },
+      "extraction_formula": "total_tokens = prompt_tokens + completion_tokens; relative_to_anchor = total_tokens / MMLU.total_tokens.",
+      "anchor": {
+        "source_benchmark_name": "MMLU (Massive Multitask Language Understanding)",
+        "benchpress_id": "mmlu",
+        "prompt_tokens": 6982477.176177128,
+        "completion_tokens": 14985.454363539857,
+        "total_tokens": 6997462.630540668
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "HellaSwag",
+          "benchpress_id": "hellaswag",
+          "instances": 615.2,
+          "references": 4.0,
+          "prompt_tokens": 36808.06637073439,
+          "completion_tokens": 36812.809153846036,
+          "total_tokens": 73620.87552458042,
+          "relative_to_anchor": 0.011
+        },
+        {
+          "source_benchmark_name": "TruthfulQA",
+          "benchpress_id": "truthfulqa",
+          "instances": 382.9490861618799,
+          "references": 4.891292592576351,
+          "prompt_tokens": 1100944.4691282208,
+          "completion_tokens": 2307.323482433849,
+          "total_tokens": 1103251.7926106546,
+          "relative_to_anchor": 0.158
+        },
+        {
+          "source_benchmark_name": "MMLU (Massive Multitask Language Understanding)",
+          "benchpress_id": "mmlu",
+          "instances": 49.72727272727273,
+          "references": 4.0,
+          "prompt_tokens": 6982477.176177128,
+          "completion_tokens": 14985.454363539857,
+          "total_tokens": 6997462.630540668,
+          "relative_to_anchor": 1.0
+        },
+        {
+          "source_benchmark_name": "MATH",
+          "benchpress_id": "math",
+          "instances": 62.42857142857143,
+          "references": 1.0,
+          "prompt_tokens": 1306373.685494141,
+          "completion_tokens": 15380.627375011733,
+          "total_tokens": 1321754.3128691528,
+          "relative_to_anchor": 0.189
+        },
+        {
+          "source_benchmark_name": "HumanEval (Code)",
+          "benchpress_id": "humaneval",
+          "instances": 164.0,
+          "references": 1.0,
+          "prompt_tokens": 1022.0853658536586,
+          "completion_tokens": 490.75609756097566,
+          "total_tokens": 1512.8414634146343,
+          "relative_to_anchor": 0.000216
+        }
+      ]
+    },
+    {
+      "source_id": "helm_lite_v1_13_0",
+      "source_name": "HELM Lite v1.13.0",
+      "evidence_type": "multi_benchmark_token_table",
+      "source_urls": [
+        "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/groups.json"
+      ],
+      "table_path": "groups[1].rows (Scenarios)",
+      "header_order": [
+        "Group",
+        "Description",
+        "Adaptation method",
+        "# instances",
+        "# references",
+        "# prompt tokens",
+        "# completion tokens",
+        "# models"
+      ],
+      "columns": {
+        "benchmark": 0,
+        "description": 1,
+        "adaptation_method": 2,
+        "instances": 3,
+        "references": 4,
+        "prompt_tokens": 5,
+        "completion_tokens": 6,
+        "models": 7
+      },
+      "extraction_formula": "total_tokens = prompt_tokens + completion_tokens.",
+      "rows": [
+        {
+          "source_benchmark_name": "GSM8K (Grade School Math)",
+          "benchpress_id": "gsm8k",
+          "instances": 1000.0,
+          "references": 1.0,
+          "prompt_tokens": 286535.82300000085,
+          "completion_tokens": 24419.654999999995,
+          "total_tokens": 310955.4780000008
+        }
+      ]
+    },
+    {
+      "source_id": "bfcl_v4_leaderboard_gemini_3_pro_fc",
+      "source_name": "Berkeley Function Calling Leaderboard v4 cost table",
+      "evidence_type": "single_benchmark_model_cost_table",
+      "source_urls": [
+        "https://gorilla.cs.berkeley.edu/leaderboard.html",
+        "https://gorilla.cs.berkeley.edu/data_overall.csv"
+      ],
+      "table_path": "data_overall.csv row where Model == Gemini-3-Pro-Preview (FC)",
+      "columns": {
+        "source_model_name": "Model",
+        "overall_accuracy": "Overall Acc",
+        "total_cost_usd": "Total Cost ($)",
+        "latency_mean_s": "Latency Mean (s)"
+      },
+      "row_selection": "Selected Gemini-3-Pro-Preview (FC) because BenchPress has a gemini-3-pro score cell for bfcl_v4.",
+      "rows": [
+        {
+          "source_benchmark_name": "BFCL v4",
+          "benchpress_id": "bfcl_v4",
+          "source_model_name": "Gemini-3-Pro-Preview (FC)",
+          "source_model_slug": "gemini-3-pro-preview-fc",
+          "overall_accuracy": "68.14%",
+          "total_cost_usd": 224.69,
+          "latency_mean_s": 15.87,
+          "notes": "Dollar-only row; no token counts reported."
+        }
+      ]
+    },
+    {
+      "source_id": "helm_long_context_v1_0_0_ruler_proxy",
+      "source_name": "HELM Long Context v1.0.0",
+      "evidence_type": "single_benchmark_token_proxy_row",
+      "source_urls": [
+        "https://storage.googleapis.com/crfm-helm-public/long-context/benchmark_output/releases/v1.0.0/groups.json"
+      ],
+      "table_path": "groups[1].rows row where Group == RULER HotPotQA",
+      "columns": {
+        "benchmark": 0,
+        "instances": 3,
+        "prompt_tokens": 5,
+        "completion_tokens": 6
+      },
+      "extraction_formula": "total_tokens = prompt_tokens + completion_tokens.",
+      "rows": [
+        {
+          "source_benchmark_name": "RULER HotPotQA",
+          "benchpress_id": "ruler_128k",
+          "instances": 100.0,
+          "prompt_tokens": 6068122.679999996,
+          "completion_tokens": 122.49,
+          "total_tokens": 6068245.169999996,
+          "notes": "The same source also reports RULER SQuAD at 5,650,821.36 total tokens."
+        }
+      ]
+    },
+    {
+      "source_id": "sierra_tau2_telecom_gpt41_default_cost_usage",
+      "source_name": "Sierra tau2-bench final telecom result logs",
+      "evidence_type": "official_result_log_agent_user_token_cost_rows",
+      "source_urls": [
+        "https://github.com/sierra-research/tau2-bench",
+        "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/data/tau2/results/final/figs/cost_info.txt",
+        "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/data/tau2/results/final/gpt-4.1-2025-04-14_telecom_default_gpt-4.1-2025-04-14_4trials.json"
+      ],
+      "table_path": "data/tau2/results/final/*telecom*_4trials.json; per-message usage and per-simulation agent_cost/user_cost",
+      "columns": {
+        "prompt_tokens": "sum of usage.prompt_tokens across agent and user-simulator messages",
+        "completion_tokens": "sum of usage.completion_tokens across agent and user-simulator messages",
+        "agent_cost_usd": "sum of per-simulation agent_cost",
+        "user_simulator_cost_usd": "sum of per-simulation user_cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "tau2-bench Telecom default, 4 trials",
+          "benchpress_id": "tau_bench_telecom",
+          "source_model_name": "gpt-4.1-2025-04-14 agent + user simulator",
+          "source_model_slug": "gpt-4.1-2025-04-14-agent-user-sim",
+          "reported_items": 114,
+          "reported_samples": 4,
+          "row_count": 456,
+          "prompt_tokens": 98778208,
+          "completion_tokens": 869183,
+          "total_tokens": 99647391,
+          "agent_prompt_tokens": 61420546,
+          "agent_completion_tokens": 581705,
+          "user_prompt_tokens": 37357662,
+          "user_completion_tokens": 287478,
+          "agent_cost_usd": 50.140428,
+          "user_simulator_cost_usd": 39.41502,
+          "total_cost_usd": 89.555448,
+          "notes": "Official tau2 final result JSON contains usage and cost fields for 456 simulations = 114 telecom tasks x 4 trials. This is agent plus user-simulator cost, not just user_cost."
+        }
+      ]
+    },
+    {
+      "source_id": "officeqa_pro_paper_table1_agent_cost_per_sample",
+      "source_name": "OfficeQA Pro paper Table 1",
+      "evidence_type": "paper_reported_agent_cost_per_sample",
+      "source_urls": [
+        "https://arxiv.org/abs/2603.08655",
+        "https://arxiv.org/html/2603.08655v1",
+        "https://github.com/databricks/officeqa"
+      ],
+      "table_path": "paper Table 1, Section 3.2 Agent Baselines",
+      "columns": {
+        "cost_per_sample_usd": "average agent cost per sample",
+        "latency_min_per_sample": "latency minutes per sample",
+        "tool_calls_per_sample": "tool calls per sample",
+        "reported_items": "OfficeQA Pro question count"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "OfficeQA Pro",
+          "benchpress_id": "officeqa_pro",
+          "source_model_name": "Claude Opus 4.6, full corpus PDF setting",
+          "source_model_slug": "claude-opus-4.6; corpus=full; format=pdf",
+          "reported_items": 133,
+          "reported_samples": 1,
+          "cost_per_sample_usd": 4.55,
+          "derived_total_cost_usd": 605.15,
+          "latency_min_per_sample": 31.2,
+          "tool_calls_per_sample": 82.4,
+          "correctness_percent": 48.12,
+          "notes": "Table 1 reports average agent cost per sample for all 133 OfficeQA Pro questions. Preferred anchor uses realistic full-corpus PDF setting; derived total is $4.55 * 133 = $605.15. The paper reports dollar cost, latency, and tool calls, not token counts."
+        }
+      ]
+    },
+    {
+      "source_id": "videoreasonbench_paper_gemini25flash_no_thinking_response_tokens",
+      "source_name": "VideoReasonBench paper token-count analysis",
+      "evidence_type": "paper_reported_average_response_tokens",
+      "source_urls": [
+        "https://arxiv.org/abs/2505.23359",
+        "https://arxiv.org/html/2505.23359v2",
+        "https://huggingface.co/datasets/lyx97/reasoning_videos"
+      ],
+      "table_path": "paper Section 2.2 and Section 3.3.1 text around Figure 5",
+      "columns": {
+        "avg_output_tokens_per_item": "average response tokens per question",
+        "reported_items": "VideoReasonBench question count"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "VideoReasonBench",
+          "benchpress_id": "videoreasonbench",
+          "source_model_name": "Gemini-2.5-Flash with thinking_budget=0",
+          "source_model_slug": "gemini-2.5-flash; thinking_budget=0",
+          "reported_items": 1440,
+          "reported_samples": 1,
+          "avg_output_tokens_per_item": 1860.1,
+          "output_tokens": 2678544,
+          "total_tokens": 2678544,
+          "notes": "Paper reports 1,860.1 average response tokens with no explicit thinking resources. Derived output-token total is 1,860.1*1,440=2,678,544. Output-only evidence; no input/video tokens or dollar cost."
+        }
+      ]
+    },
+    {
+      "source_id": "zerobench_v2_table3_o1_main_completion_tokens_cost",
+      "source_name": "ZeroBench paper Table 3 completion tokens and cost",
+      "evidence_type": "paper_reported_average_item_completion_tokens_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2502.09696",
+        "https://arxiv.org/html/2502.09696v2",
+        "https://zerobench.github.io/"
+      ],
+      "table_path": "Section 5.2 Completion Tokens, Table 3, o1 row, Main questions columns",
+      "columns": {
+        "avg_completion_tokens_per_item": "average completion tokens per question",
+        "cost_per_item_usd": "average completion-token cost per question"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "ZeroBench main questions",
+          "benchpress_id": "zerobench_main",
+          "source_model_name": "o1",
+          "source_model_slug": "o1-2024-12-17",
+          "reported_items": 100,
+          "reported_samples": 1,
+          "avg_completion_tokens_per_item": 7496,
+          "completion_tokens": 749600,
+          "total_tokens": 749600,
+          "cost_per_item_usd": 0.472,
+          "total_cost_usd": 47.2,
+          "notes": "Table 3 reports average per-main-question completion tokens and cost. Derived total is 7,496*100 tokens and $0.472*100=$47.20. Input/image prompt costs are not included."
+        }
+      ]
+    },
+    {
+      "source_id": "zerobench_v2_table3_o1_sub_completion_tokens_cost",
+      "source_name": "ZeroBench paper Table 3 completion tokens and cost",
+      "evidence_type": "paper_reported_average_item_completion_tokens_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2502.09696",
+        "https://arxiv.org/html/2502.09696v2",
+        "https://zerobench.github.io/"
+      ],
+      "table_path": "Section 5.2 Completion Tokens, Table 3, o1 row, Subquestions columns",
+      "columns": {
+        "avg_completion_tokens_per_item": "average completion tokens per subquestion",
+        "cost_per_item_usd": "average completion-token cost per subquestion"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "ZeroBench subquestions",
+          "benchpress_id": "zerobench_sub",
+          "source_model_name": "o1",
+          "source_model_slug": "o1-2024-12-17",
+          "reported_items": 334,
+          "reported_samples": 1,
+          "avg_completion_tokens_per_item": 3891,
+          "completion_tokens": 1299594,
+          "total_tokens": 1299594,
+          "cost_per_item_usd": 0.245,
+          "total_cost_usd": 81.83,
+          "notes": "Table 3 reports average per-subquestion completion tokens and cost. Derived total is 3,891*334 tokens and $0.245*334=$81.83. Input/image prompt costs are not included."
+        }
+      ]
+    },
+    {
+      "source_id": "eqbench_creative_writing_v3_official_judge_cost",
+      "source_name": "EQ-Bench Creative Writing v3 official benchmark documentation",
+      "evidence_type": "single_benchmark_run_judge_cost_usd",
+      "source_urls": [
+        "https://eqbench.com/about.html#creative-writing-v3",
+        "https://eqbench.com/creative_writing.html"
+      ],
+      "table_path": "About page > Creative Writing v3 > benchmark description and cost text",
+      "columns": {
+        "reported_items": "32 writing prompts",
+        "reported_samples": "3 iterations",
+        "total_cost_usd": "around $10 in API fees for scoring a model"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "Creative Writing v3",
+          "benchpress_id": "creative_writing_v3",
+          "source_model_name": "Claude judge for Creative Writing v3 scoring",
+          "source_model_slug": "judge=claude-sonnet; benchmark=creative-writing-v3",
+          "reported_items": 32,
+          "reported_samples": 3,
+          "row_count": 96,
+          "input_tokens": null,
+          "output_tokens": null,
+          "total_tokens": null,
+          "total_cost_usd": 10.0,
+          "notes": "Official page states Creative Writing v3 uses 32 prompts times 3 iterations and scoring a model costs around $10 in API fees. Judge/evaluation cost only; evaluated-model inference cost and token counts are not reported."
+        }
+      ]
+    },
+    {
+      "source_id": "deepresearchbench_official_race_judge_cost",
+      "source_name": "DeepResearch Bench official judge-cost table",
+      "evidence_type": "official_benchmark_judge_cost_per_query",
+      "source_urls": [
+        "https://deepresearch-bench.github.io/"
+      ],
+      "table_path": "Comparison of Different Judge LLMs > Table 3: Avg. Cost ($)",
+      "columns": {
+        "judge_llm": "Judge LLM",
+        "cost_per_query_usd": "Avg. Cost ($)",
+        "reported_items": "DeepResearch Bench task count"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "DeepResearch Bench",
+          "benchpress_id": "deepresearchbench",
+          "source_model_name": "Gemini 2.5 Pro Preview judge in RACE(Full)",
+          "source_model_slug": "gemini-2.5-pro-preview; role=judge; framework=RACE",
+          "reported_items": 100,
+          "reported_samples": 1,
+          "input_tokens": null,
+          "output_tokens": null,
+          "total_tokens": null,
+          "cost_per_query_usd": 0.13,
+          "total_cost_usd": 13.0,
+          "notes": "Table 3 reports Avg. Cost=$0.13 for Gemini 2.5 Pro Preview. Page states DeepResearch Bench consists of 100 tasks. Judge/evaluator cost only, not evaluated-agent generation cost."
+        }
+      ]
+    },
+    {
+      "source_id": "eqbench3_official_judge_cost",
+      "source_name": "EQ-Bench 3 official about page judge cost",
+      "evidence_type": "single_benchmark_run_judge_cost_usd_range",
+      "source_urls": [
+        "https://eqbench.com/about.html"
+      ],
+      "table_path": "EQ-Bench 3 > Cost subsection",
+      "columns": {
+        "reported_items": "45 scenarios",
+        "cost_usd_lo": "lower bound of full run judge cost",
+        "cost_usd_hi": "upper bound of full run judge cost",
+        "rubric_only_cost_usd": "rubric-only cost per iteration"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "EQ-Bench 3",
+          "benchpress_id": "eq_bench3",
+          "source_model_name": "Claude Opus 4.6 judge via OpenRouter",
+          "source_model_slug": "claude-opus-4.6; role=judge; provider=openrouter",
+          "reported_items": 45,
+          "reported_samples": 1,
+          "input_tokens": null,
+          "output_tokens": null,
+          "total_tokens": null,
+          "cost_usd_lo": 10.0,
+          "cost_usd_hi": 15.0,
+          "total_cost_usd": 12.5,
+          "rubric_only_cost_usd": 1.5,
+          "notes": "Official page states full run (rubric plus pairwise) costs approximately $10-$15 on OpenRouter and rubric-only costs approximately $1.5 per iteration. Midpoint is stored as total_cost_usd. Judge costs only."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_imo_2025_outputs_all_models_cost",
+      "source_name": "MathArena IMO 2025 output logs",
+      "evidence_type": "official_output_log_token_cost_rows",
+      "source_urls": [
+        "https://matharena.ai/imo/",
+        "https://huggingface.co/datasets/MathArena/imo_2025_outputs",
+        "https://datasets-server.huggingface.co/statistics?dataset=MathArena/imo_2025_outputs&config=default&split=train"
+      ],
+      "source_data_url": "https://datasets-server.huggingface.co/rows?dataset=MathArena/imo_2025_outputs&config=default&split=train",
+      "table_path": "HF dataset rows; all 168 public rows",
+      "rows": [
+        {
+          "source_benchmark_name": "IMO 2025",
+          "benchpress_id": "imo_2025",
+          "source_model_name": "All 7 MathArena-reported models",
+          "source_model_slug": "deepseek_r1_0528; gemini-pro-2.5; gpt-5; o3; o4-mini--high; grok-4; grok-4-new",
+          "reported_items": 6,
+          "reported_samples": 4,
+          "row_count": 168,
+          "input_tokens": 79575208,
+          "output_tokens": 212147743,
+          "total_tokens": 291722951,
+          "total_cost_usd": 2282.18689648,
+          "notes": "Summed all 168 public MathArena output rows: 6 problems times 4 answers per model/problem times 7 models. Cost is exact sum of public per-row cost values."
+        }
+      ]
+    },
+    {
+      "source_id": "longfact_safe_readme_gpt35_turbo_cost_per_pair",
+      "source_name": "Google DeepMind SAFE README cost estimate",
+      "evidence_type": "official_evaluator_cost_per_prompt_response_pair",
+      "source_urls": [
+        "https://github.com/google-deepmind/long-form-factuality/tree/main/eval/safe",
+        "https://raw.githubusercontent.com/google-deepmind/long-form-factuality/main/eval/safe/README.md",
+        "https://raw.githubusercontent.com/google-deepmind/long-form-factuality/main/longfact/README.md"
+      ],
+      "table_path": "SAFE README cost estimate; LongFact README prompt counts",
+      "rows": [
+        {
+          "source_benchmark_name": "LongFact-Concepts",
+          "benchpress_id": "longfact_concepts",
+          "source_model_name": "SAFE evaluator with GPT-3.5-Turbo-0125 and Serper",
+          "source_model_slug": "gpt_35_turbo; search=serper; num_searches=3; max_steps=5",
+          "reported_items": 1140,
+          "reported_samples": 1,
+          "serper_api_credits_per_pair": 100,
+          "serper_search_calls_per_pair_approx": 100,
+          "openai_api_cost_per_pair_usd": 0.10,
+          "cost_per_pair_usd": 0.20,
+          "cost_per_pair_usd_long_response_upper": 0.40,
+          "total_cost_usd": 228.0,
+          "derived_total_cost_usd_long_response_upper": 456.0,
+          "notes": "SAFE README states about $0.20 per prompt-response pair, up to $0.40 for longer responses. LongFact README gives 1,140 Concepts prompts."
+        },
+        {
+          "source_benchmark_name": "LongFact-Objects",
+          "benchpress_id": "longfact_objects",
+          "source_model_name": "SAFE evaluator with GPT-3.5-Turbo-0125 and Serper",
+          "source_model_slug": "gpt_35_turbo; search=serper; num_searches=3; max_steps=5",
+          "reported_items": 1140,
+          "reported_samples": 1,
+          "serper_api_credits_per_pair": 100,
+          "serper_search_calls_per_pair_approx": 100,
+          "openai_api_cost_per_pair_usd": 0.10,
+          "cost_per_pair_usd": 0.20,
+          "cost_per_pair_usd_long_response_upper": 0.40,
+          "total_cost_usd": 228.0,
+          "derived_total_cost_usd_long_response_upper": 456.0,
+          "notes": "SAFE README states about $0.20 per prompt-response pair, up to $0.40 for longer responses. LongFact README gives 1,140 Objects prompts."
+        }
+      ]
+    },
+    {
+      "source_id": "paperbench_code_dev_o3mini_simplejudge_and_rollout_cost",
+      "source_name": "PaperBench paper SimpleJudge and Code-Dev cost discussion",
+      "evidence_type": "paper_reported_judge_and_rollout_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2504.01848",
+        "https://arxiv.org/html/2504.01848v3"
+      ],
+      "table_path": "Section 4.1 SimpleJudge Implementation; Section 7 Limitations / Cost",
+      "rows": [
+        {
+          "source_benchmark_name": "PaperBench Code-Dev",
+          "benchpress_id": "paperbench",
+          "source_model_name": "o3-mini SimpleJudge",
+          "source_model_slug": "o3-mini-2025-01-31;reasoning_effort=high;simplejudge",
+          "reported_items": 20,
+          "reported_samples": 1,
+          "input_tokens": null,
+          "output_tokens": null,
+          "judge_cost_per_item_usd": 10,
+          "derived_judge_total_cost_usd": 200,
+          "reported_rollout_total_cost_usd": 4000,
+          "total_cost_usd": 4200,
+          "notes": "Paper reports Code-Dev grading costs are reduced to $10 per paper on average and Code-Dev rollouts would cost $4,000 per eval run; total stored combines $200 judge cost plus $4,000 rollout cost. Full PaperBench SimpleJudge token counts are reported separately, but Code-Dev token counts are not directly reported."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_smt_2025_outputs_kimi_k2_thinking_cost",
+      "source_name": "MathArena SMT 2025 output logs for Kimi K2 Thinking",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://matharena.ai/competition_tables/smt--smt_2025",
+        "https://huggingface.co/datasets/MathArena/smt_2025",
+        "https://huggingface.co/datasets/MathArena/smt_2025_outputs",
+        "https://github.com/eth-sri/matharena"
+      ],
+      "source_data_url": "https://huggingface.co/datasets/MathArena/smt_2025_outputs/resolve/main/data/train-00000-of-00001.parquet",
+      "table_path": "data/train-00000-of-00001.parquet rows where model_config == 'moonshot/k2-thinking'",
+      "rows": [
+        {
+          "source_benchmark_name": "SMT 2025",
+          "benchpress_id": "smt_2025",
+          "source_model_name": "Kimi K2 Thinking",
+          "source_model_slug": "moonshot/k2-thinking",
+          "reported_items": 53,
+          "reported_samples": 4,
+          "row_count": 212,
+          "input_tokens": 31809,
+          "output_tokens": 4563498,
+          "total_tokens": 4595307,
+          "input_cost_per_million_usd": 0.60,
+          "output_cost_per_million_usd": 2.50,
+          "total_cost_usd": 11.4278304,
+          "notes": "Rows cover all 53 SMT 2025 problems with 4 samples each; cost matches MathArena model pricing formula and official leaderboard rounded per-problem-run cost."
+        }
+      ]
+    },
+    {
+      "source_id": "vibe_eval_paper_reka_core_free_evaluator_api",
+      "source_name": "Vibe-Eval paper/blog Reka Core evaluator free API access",
+      "evidence_type": "benchmark_evaluator_dollar_cost",
+      "source_urls": [
+        "https://arxiv.org/abs/2405.02287",
+        "https://arxiv.org/html/2405.02287v1",
+        "https://reka.ai/news/vibe-eval",
+        "https://github.com/reka-ai/reka-vibe-eval"
+      ],
+      "source_data_urls": [
+        "https://raw.githubusercontent.com/reka-ai/reka-vibe-eval/main/data/vibe-eval.v1.jsonl",
+        "https://github.com/reka-ai/reka-vibe-eval/blob/main/evaluate.py"
+      ],
+      "table_path": "Paper evaluator description and official evaluate.py",
+      "rows": [
+        {
+          "source_benchmark_name": "Vibe-Eval",
+          "benchpress_id": "vibe_eval",
+          "reported_items": 269,
+          "reported_samples": 1,
+          "source_model_name": "Reka Core evaluator",
+          "source_model_slug": "reka-core-20240501",
+          "paper_evaluator_repeats": 3,
+          "paper_evaluator_calls": 807,
+          "current_repo_evaluator_repeats": 1,
+          "current_repo_evaluator_calls": 269,
+          "input_tokens": null,
+          "output_tokens": null,
+          "total_tokens": null,
+          "total_cost_usd": 0.0,
+          "notes": "Vibe-Eval paper/blog state that Reka Core is the automatic evaluator and that API access is free/free-of-charge for lightweight Vibe-Eval evaluation. Paper results run the Core evaluator three times and average scores; current official evaluate.py makes one Reka Core API call per supplied generation row. No token counts are published."
+        }
+      ]
+    },
+    {
+      "source_id": "swe_bench_multimodal_paper_table3_avg_cost_per_task",
+      "source_name": "SWE-bench Multimodal paper Table 3",
+      "evidence_type": "paper_reported_average_per_task_cost",
+      "source_urls": [
+        "https://arxiv.org/html/2410.03859",
+        "https://www.swebench.com/multimodal.html"
+      ],
+      "table_path": "Table 3: Performance comparison of various baselines on SWE-bench M",
+      "rows": [
+        {
+          "source_benchmark_name": "SWE-bench Multimodal",
+          "benchpress_id": "swe_bench_multimodal",
+          "source_model_name": "RAG + Claude 3.5 Sonnet baseline",
+          "source_model_slug": "rag;claude-3.5-sonnet",
+          "reported_items": 517,
+          "reported_samples": 1,
+          "avg_cost_usd_per_task": 0.15,
+          "total_cost_usd": 77.55,
+          "input_tokens": null,
+          "output_tokens": null,
+          "total_tokens": null,
+          "notes": "Paper Table 3 reports $ Avg. Cost per task for multiple SWE-bench Multimodal baselines. This row stores the lowest paper-reported baseline cost, RAG + Claude 3.5 Sonnet at $0.15/task; derived full-run cost is $0.15*517=$77.55."
+        },
+        {
+          "source_benchmark_name": "SWE-bench Multimodal",
+          "benchpress_id": "swe_bench_multimodal",
+          "source_model_name": "SWE-agent M + GPT-4o baseline",
+          "source_model_slug": "swe-agent-m;gpt-4o",
+          "reported_items": 517,
+          "reported_samples": 1,
+          "avg_cost_usd_per_task": 2.94,
+          "total_cost_usd": 1519.98,
+          "notes": "Alternate paper-reported baseline row, included for provenance. Cost is harness/model-specific."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_usamo_2026_outputs_gpt54_xhigh_cost",
+      "source_name": "MathArena USAMO 2026 output logs for GPT-5.4 (xhigh)",
+      "evidence_type": "single_model_benchmark_run_token_cost_rows",
+      "source_urls": [
+        "https://matharena.ai/usamo/",
+        "https://matharena.ai/",
+        "https://huggingface.co/datasets/MathArena/usamo_2026_outputs",
+        "https://huggingface.co/datasets/MathArena/usamo_2026_outputs/resolve/main/data/train-00000-of-00001.parquet"
+      ],
+      "table_path": "data/train-00000-of-00001.parquet rows where model_config == 'openai/gpt-54'",
+      "columns": {
+        "problem_idx": "problem id",
+        "model_name": "model display name",
+        "model_config": "model slug/config",
+        "idx_answer": "sample index",
+        "input_tokens": "per-answer input tokens",
+        "output_tokens": "per-answer output tokens",
+        "cost": "per-answer USD cost"
+      },
+      "rows": [
+        {
+          "source_benchmark_name": "USAMO 2026",
+          "benchpress_id": "usamo_2026",
+          "source_model_name": "GPT-5.4 (xhigh)",
+          "source_model_slug": "openai/gpt-54",
+          "reported_items": 6,
+          "reported_samples": 4,
+          "row_count": 24,
+          "input_tokens": 49614,
+          "output_tokens": 1365072,
+          "total_tokens": 1414686,
+          "total_cost_usd": 20.600115,
+          "cost_per_problem_run_usd": 0.858338125,
+          "notes": "Rows cover idx_answer 0,1,2,3 for all 6 USAMO 2026 problems. MathArena states each model is run 4 times on each problem and displayed table cost is average cost of one model run on one problem. Evidence covers model answer generation cost/tokens, not LLM-jury grading or human verification cost."
+        }
+      ]
+    },
+    {
+      "source_id": "matharena_usamo_2025_outputs_all_models_cost",
+      "source_name": "MathArena USAMO 2025 output logs",
+      "evidence_type": "official_output_log_token_cost_rows",
+      "source_urls": [
+        "https://matharena.ai/competition_tables/usamo--usamo_2025",
+        "https://huggingface.co/datasets/MathArena/usamo_2025_outputs",
+        "https://datasets-server.huggingface.co/rows?dataset=MathArena/usamo_2025_outputs&config=default&split=train",
+        "https://datasets-server.huggingface.co/statistics?dataset=MathArena/usamo_2025_outputs&config=default&split=train"
+      ],
+      "source_data_url": "https://datasets-server.huggingface.co/rows?dataset=MathArena/usamo_2025_outputs&config=default&split=train",
+      "table_path": "HF dataset rows; all 240 public rows",
+      "rows": [
+        {
+          "source_benchmark_name": "USAMO 2025",
+          "benchpress_id": "usamo_2025",
+          "source_model_name": "All 10 MathArena-reported models",
+          "source_model_slug": "claude-3.7-sonnet-think; deepseek-r1; deepseek-r1-0528; gemini-2.5-pro; grok-3-think; qwq-32b; gemini-2.0-flash-thinking; o1-pro-high; o3-mini-high; o4-mini-high",
+          "reported_items": 6,
+          "reported_samples": 4,
+          "row_count": 240,
+          "input_tokens": 50672,
+          "output_tokens": 3432986,
+          "total_tokens": 3483658,
+          "total_cost_usd": 248.69105409,
+          "notes": "Exact sum over public MathArena per-output rows with input_tokens, output_tokens, and cost fields: 6 problems times 4 answers times 10 models. Preserves reported zero/N/A token or cost rows, e.g. Grok 3 Think and gemini-2.0-flash-thinking cost."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# frozen 2026-10-02; target=mcpmark; cutoff=2026-02-19; test=4 dev=12
+gemini-3.1-pro
+gpt-5.4
+qwen3.6-plus
+kimi-k2.6

@@ -1,0 +1,10 @@
+# frozen 2026-10-02; target=toolathlon; cutoff=2026-05-28; test=9 dev=34
+claude-opus-4.8
+claude-fable-5
+glm-5.2
+doubao-seed-2.1-pro
+doubao-seed-2.1-turbo
+hy3
+gpt-5.6-luna
+gpt-5.6-sol
+gpt-5.6-terra

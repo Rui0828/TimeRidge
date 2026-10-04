@@ -1,0 +1,7 @@
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+matplotlib
+huggingface_hub

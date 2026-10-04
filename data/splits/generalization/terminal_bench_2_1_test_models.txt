@@ -1,0 +1,8 @@
+# frozen 2026-10-02; target=terminal_bench_2_1; cutoff=2026-07-06; test=7 dev=28
+hy3
+gpt-5.6-luna
+gpt-5.6-sol
+gpt-5.6-terra
+kimi-k3
+intern-s2-preview-397b
+ling-3.0-flash

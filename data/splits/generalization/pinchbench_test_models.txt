@@ -1,0 +1,7 @@
+# frozen 2026-10-02; target=pinchbench; cutoff=2026-04-22; test=6 dev=12
+deepseek-v4-flash
+deepseek-v4-pro
+kimi-k2.6
+intern-s2-preview-35b
+nemotron-3-ultra-550b-a55b
+lfm2.5-2.6b

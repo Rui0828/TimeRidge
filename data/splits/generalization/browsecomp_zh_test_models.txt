@@ -1,0 +1,5 @@
+# frozen 2026-10-02; target=browsecomp_zh; cutoff=2026-02-01; test=4 dev=15
+qwen3.5-397b
+doubao-seed-2.0-pro
+glm-5
+longcat-flash-lite-sparse

@@ -1,0 +1,6 @@
+# frozen 2026-10-02; target=terminal_bench_hard; cutoff=2026-04-02; test=5 dev=13
+gemma-4-26b-a4b
+gemma-4-31b
+gemma-4-e2b
+gemma-4-e4b
+gemma-4-12b

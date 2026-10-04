@@ -1,0 +1,59 @@
+{
+  "schema_version": "public-table-export-v1",
+  "dataset_id": "microsoft/benchpress-score-matrix",
+  "generated_at_utc": "2026-08-18T17:25:50.638821+00:00",
+  "source_json": "data/llm_benchmark_data.json",
+  "parquet_written": true,
+  "rows": {
+    "models": 283,
+    "benchmarks": 712,
+    "scores_all": 8713,
+    "scores_paper": 4905
+  },
+  "paper_matrix": {
+    "models": 129,
+    "benchmarks": 253,
+    "observations": 4905,
+    "fill_rate": 0.15028954867175293,
+    "m_threshold": 15,
+    "b_threshold": 8,
+    "iterations": 5
+  },
+  "canonical_artifacts": {
+    "data/llm_benchmark_data.json": {
+      "sha256": "3de4b35676335836e199ea21a707e5a706b660472185eed71dcb4dd803ad1f28",
+      "bytes": 9057527
+    },
+    "data/benchmark_cost_evidence.json": {
+      "sha256": "42dd2f7bf666067ef31a72fb9df4f0670aea49df149bce78fbd0e75fed0cae16",
+      "bytes": 112717
+    }
+  },
+  "files": [
+    "data/models.csv",
+    "data/models.parquet",
+    "data/benchmarks.csv",
+    "data/benchmarks.parquet",
+    "data/scores_all.csv",
+    "data/scores_all.parquet",
+    "data/scores_paper.csv",
+    "data/scores_paper.parquet",
+    "data/score_matrix_paper_wide.csv",
+    "data/llm_benchmark_data.json",
+    "data/benchmark_cost_evidence.json",
+    "data/README.md",
+    "data/SCHEMA.md",
+    "data/benchmark_cost_evidence.README.md",
+    "data/LICENSE-CDLA-2.0.md",
+    "README.md",
+    "metadata.json"
+  ],
+  "notes": [
+    "llm_benchmark_data.json is the authoritative rich score-matrix artifact.",
+    "benchmark_cost_evidence.json is the authoritative raw public cost-evidence artifact.",
+    "scores_all is a flat public pre-filter table derived from the canonical JSON.",
+    "scores_paper is the paper-canonical filtered long table.",
+    "score_matrix_paper_wide.csv is the paper-canonical model-by-benchmark matrix.",
+    "CSV and Parquet files omit nested fields such as candidates and audit provenance; use the canonical JSON for lossless data."
+  ]
+}

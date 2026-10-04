@@ -1,0 +1,6 @@
+# frozen 2026-10-02; target=cybergym; cutoff=2026-05-28; test=5 dev=17
+claude-opus-4.8
+claude-fable-5
+doubao-seed-2.1-pro
+doubao-seed-2.1-turbo
+gpt-5.6-sol

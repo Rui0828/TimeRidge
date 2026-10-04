@@ -1,0 +1,13 @@
+# frozen 2026-10-02; target=swe_bench_pro; cutoff=2026-06-16; test=12 dev=47
+glm-5.2
+doubao-seed-2.1-pro
+doubao-seed-2.1-turbo
+longcat-2.0
+hy3
+gpt-5.6-luna
+gpt-5.6-sol
+gpt-5.6-terra
+llada2.2-flash
+intern-s2-preview-397b
+longcat-flash-lite-sparse
+ling-3.0-flash

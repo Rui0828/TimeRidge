@@ -1,0 +1,12 @@
+# frozen 2026-10-02; target=browsecomp; cutoff=2026-06-09; test=11 dev=44
+claude-fable-5
+doubao-seed-2.1-pro
+doubao-seed-2.1-turbo
+longcat-2.0
+hy3
+gpt-5.6-luna
+gpt-5.6-sol
+gpt-5.6-terra
+kimi-k3
+longcat-flash-lite-sparse
+ling-3.0-flash
