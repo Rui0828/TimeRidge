@@ -61,7 +61,7 @@ for f, tr, val in folds:
     past = W[rel.loc[W.index] < val.release_date.min()]
     probes = W.loc[val.index, [p for p in C.PROBES if p in W.columns]]
     for meth in bp.METHODS:
-        record(meth, f, val, bp.predict(past, probes, TGT, method=meth).to_numpy())
+        record(meth, f, val, bp.predict_individually(past, probes, TGT, method=meth).to_numpy())
     for a in ALPHAS:
         record("ridge_A", f, val, Linear("A", a).fit(tr).predict(val), alpha=a)
         record("ridge_C", f, val, Linear("C", a).fit(tr).predict(val), alpha=a)

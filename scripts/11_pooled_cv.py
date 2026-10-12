@@ -80,7 +80,7 @@ for f in sorted((C.SPLITS / "generalization").glob("*_test_models.txt")):
             add(name, val, make().fit(tr).predict(val))
         past = Wd[rel.loc[Wd.index] < val.release_date.min()]
         for meth, name in (("benchpress", "BenchPress"), ("soft_impute", "Soft-Impute")):
-            add(name, val, bp.predict(past, Wd.loc[val.index, probes], tgt, method=meth).to_numpy())
+            add(name, val, bp.predict_individually(past, Wd.loc[val.index, probes], tgt, method=meth).to_numpy())
     for name, (make, grid) in RIDGE.items():
         best, best_mae = None, np.inf
         for h in grid:

@@ -63,3 +63,11 @@ def predict(train: pd.DataFrame, new_rows: pd.DataFrame, target: str, method: st
     P = fn(X.to_numpy(dtype=float))
     j = bids.index(target)
     return pd.Series(P[len(train):, j], index=new_rows.index)
+
+
+def predict_individually(train: pd.DataFrame, new_rows: pd.DataFrame, target: str,
+                         method: str = "benchpress") -> pd.Series:
+    """Use a fixed historical fold cutoff without sharing validation-row inputs."""
+    return pd.Series(
+        [predict(train, new_rows.loc[[model]], target, method=method).iloc[0]
+         for model in new_rows.index], index=new_rows.index, dtype=float)
