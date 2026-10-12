@@ -101,7 +101,7 @@ SHORT = {"tau_bench_airline": "τ-bench Airline", "tau_bench_retail": "τ-bench 
          "toolathlon": "Toolathlon", "claw_eval_pass3": "Claw Eval (pass³)", "mcpatlas": "MCPAtlas",
          "terminal_bench": "Terminal-Bench 2.0", "swe_bench_pro": "SWE-Bench Pro"}
 with mpl.rc_context({"font.size": 7}):
-    fig, ax = plt.subplots(figsize=(3.03, 2.95))
+    fig, ax = plt.subplots(figsize=(2.2, 2.95))  # narrower plot leaves room for the value columns at the right
     ax.axvspan(-100, 0, color="#898781", alpha=0.07, lw=0, zorder=0)
     ax.axvline(0, color="#2c2c2a", lw=1.4, zorder=2)
     y = np.arange(len(order))
@@ -112,14 +112,23 @@ with mpl.rc_context({"font.size": 7}):
     h1 = ax.scatter(pv.loc[order, "Final model - time"], y, s=16, color="#898781", edgecolor=SURF, lw=0.6, zorder=4)
     h2 = ax.scatter(pv.loc[order, "Final model"], y, s=16, color=ORANGE, edgecolor=SURF, lw=0.6, zorder=4)
     h3 = ax.scatter(pv.loc[order, "BenchPress"], y, s=34, marker="|", color=BLUE, alpha=0.85, linewidths=1.6, zorder=1.8)
+    # per-benchmark values printed beside the plot, so the arrows and the sign-test counts can be checked in the paper
+    cols = (("−t", "Final model - time", 9), ("ours", "Final model", 29), ("BP", "BenchPress", 49))
+    for head, col, dx in cols:
+        ax.annotate(head, xy=(1.0, len(order) - 0.05), xycoords=("axes fraction", "data"), xytext=(dx, 0),
+                    textcoords="offset points", va="center", ha="left", fontsize=5.6, color=INK2, fontweight="bold")
+        for yi, t_ in zip(y, order):
+            ax.annotate(f"{pv.loc[t_, col]:+.1f}".replace("-", "−"), xy=(1.0, yi), xycoords=("axes fraction", "data"), xytext=(dx, 0),
+                        textcoords="offset points", va="center", ha="left", fontsize=5.6,
+                        color=ORANGE if col == "Final model" else INK2)
     ax.set_yticks(y, [f"{SHORT.get(t_, str(bnames.get(t_, t_)))} ({nn[t_]})" for t_ in order])
     ax.set_ylim(-0.8, len(order) + 0.5)
     ax.set_xlabel("test signed bias, predicted − actual (pp)")
     ax.set_xlim(-45, 25)
     ax.text(-1.5, len(order) - 0.05, "← underpredicts", fontsize=6.3, color=INK2, va="center", ha="right")
-    ax.text(1.5, len(order) - 0.05, "overpredicts →", fontsize=6.3, color=INK2, va="center", ha="left")
+    ax.text(1.5, len(order) - 0.05, "over →", fontsize=6.3, color=INK2, va="center", ha="left")
     ax.legend([h1, h2, h3], ["TimeRidge − time", "TimeRidge (ours)", "BenchPress"], loc="lower center",
-              bbox_to_anchor=(0.4, 1.0), ncol=3, frameon=False, fontsize=6.5, handletextpad=0.2, columnspacing=0.8)
+              bbox_to_anchor=(0.55, 1.0), ncol=3, frameon=False, fontsize=6.5, handletextpad=0.2, columnspacing=0.8)
     save(fig, "fig_generalization")
 
 
